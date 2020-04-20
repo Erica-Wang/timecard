@@ -2,9 +2,6 @@
 
 .App {
   text-align: center;
-}
-
-div {
   font-family: 'Raleway';
 }
 
@@ -46,4 +43,26 @@ h4 {
 
 .btn-divide {
   padding: 1vh;
+}
+
+
+.subtitle {
+  color: #273D7C;
+  font-weight: 800;
+}
+
+.logo {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
+}
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 600px;
+  }
 }
