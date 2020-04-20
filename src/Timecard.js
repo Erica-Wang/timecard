@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Form} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 
 function Timecard() {
   return (
@@ -22,6 +22,7 @@ function Timecard() {
           <Form.Check inline label="x 2.0" type='radio' />
         </Form.Group>
       </Form>
+      <Button className="submit-btn">Submit</Button>
     </div>
   );
 }
