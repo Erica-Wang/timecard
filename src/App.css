@@ -78,7 +78,7 @@ h4 {
 }
 
 .task {
-  background-color: turquoise;
+  background-color: #ededed;
   border-radius: 1em;
   margin: 2%;
   padding: 2%;
@@ -94,7 +94,7 @@ h4 {
 }
 
 .timecard {
-  background-color: crimson;
+  background-color: gray;
   margin: 2%;
   border-radius: 1em;
 }

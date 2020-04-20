@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import ReactHtmlParser from "react-html-parser";
+import Timecard from './Timecard';
 
 const loops = (jsonData) =>{
   var output = "";
@@ -19,6 +20,8 @@ const loops = (jsonData) =>{
   }
 }
 const Tasks = (props) => {
+  const [tc, setTc] = useState();
+  
   return (
     ReactHtmlParser(loops(jsonData))
   );

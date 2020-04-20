@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
 import logo from './assets/logo.svg';
-import {Navbar} from 'react-bootstrap';
+import {Navbar, Button} from 'react-bootstrap';
 import Tasks from './Tasks';
 import Timecard from './Timecard';
 
@@ -21,12 +21,17 @@ function EmployeeDashboard() {
       </Navbar>
       <h1>Employee Dashboard</h1>
       {/* EHEHHEHEHE renderin these boys is fun*/}
-      <Tasks />
+      
+      <div className="job">
+        <Tasks />
+      </div>
+      
+      {/* <Tasks />
       <Timecard />
       <Tasks />
       <Timecard />
       <Tasks />
-      <Timecard />
+      <Timecard /> */}
 
     </div>
   );
