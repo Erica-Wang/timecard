@@ -92,3 +92,14 @@ h4 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.timecard {
+  background-color: crimson;
+  margin: 2%;
+  border-radius: 1em;
+}
+
+.timecard-form {
+  padding: 2%;
+  color: white;
+}
