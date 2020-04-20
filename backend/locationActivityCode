@@ -1,0 +1,642 @@
+{
+  "318100 Hundczyak Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318101 Prokopchuk Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318102 2NS Line N & S Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318103 Carson Village Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318104 Wilson Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318105 Pinegrove Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318106 South Innisfil  Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318107 8th Line Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318108 Red Fern/Big Bay Point": [
+    "31800.0 Municipal Drains"
+  ],
+  "318109 South Innisfil Drain Branch B": [
+    "31800.0 Municipal Drains"
+  ],
+  "318110 9th Line Drain(Rose lane)": [
+    "31800.0 Municipal Drains"
+  ],
+  "318111 Hughes Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318112 3rd Line Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318113 Kell Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318114 Roulston Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318115 Little Cedar Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318116 Hewitt Creek Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318117 Lawson Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318118 Hyslop Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318119 Jonah Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "318120 Strugess Drain": [
+    "31800.0 Municipal Drains"
+  ],
+  "248100 West Nile Virus": [
+    "24800 West Nile Virus"
+  ],
+  "330100.0 Bus Shelters": [
+    "71121 Snow Removal",
+    "71132 Facility Maintenance",
+    "87000 Vandalism"
+  ],
+  "310100.0 Road Operations": [
+    "31101 Patching & Spray Patching",
+    "31102 Pavement Markings",
+    "31103 Slurry Seal",
+    "31104 Sweeping/Flushing & Cleaning",
+    "31201 Dust Control",
+    "31202 Gravel Resurfacing",
+    "31203 Shoulder MTC/Grading",
+    "31204 Road Grading",
+    "31301 Animal Disposal/Pest Control",
+    "31302 Debris & Litter",
+    "31303 Mailbox Repair",
+    "31305 Railway Maint",
+    "31306 Stump Dump",
+    "31308 Town Pit",
+    "31309 Traffic Counts",
+    "31310 Guiderail",
+    "31313 Road Patrol",
+    "31315 Oversize Load Permits",
+    "31316 Entrance Permits",
+    "31317 Road Occupancy Permit",
+    "31401 Brush/Tree Removal",
+    "31403 Grass/Weed Cutting",
+    "31404 Sidewalk Maintenance",
+    "31405 Signals",
+    "31406 Signs",
+    "31408 Bvld. Tree Replacement",
+    "31409 Fencing",
+    "31601 Sanding and Salting",
+    "31602 Sidewalk Snow Removal",
+    "31603 Snow Fence/Culvert Thawing",
+    "31604 Snow Plowing and Removal",
+    "81018 Municipal Consent"
+  ],
+  "420100.0 Storm Water Management": [
+    "31100 Curb/Gutter & Catch Basins",
+    "31307 Surveying/Drafting",
+    "31312 Flood Control",
+    "31402 Ditching",
+    "31501 Bridges & Culverts",
+    "31603 Snow Fence/Culvert Thawing",
+    "31701 Detention Ponds",
+    "31702 Stormwater Management"
+  ],
+  "350100.0 Street Lighting": [
+    "35000 General Street Lighting"
+  ],
+  "710200 Stroud/Innisfil CRC": [
+    "71101 Trails ",
+    "71102 Ball Diamond",
+    "71107 Curling Club",
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71116 Library",
+    "71118 Play Ground",
+    "71124 Skate parks ",
+    "71125 Open Space",
+    "71131 Rinks & Pads ",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710220 South (Lefroy) Innisfil CRC": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71124 Skate parks ",
+    "71125 Open Space",
+    "71131 Rinks & Pads ",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710240 Churchill CRC": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710260 Knock CRC": [
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710300 Innisfil Beach Park": [
+    "71101 Trails ",
+    "71102 Ball Diamond",
+    "71103 Beach Area",
+    "71104 Boat Launch",
+    "71106 Concession Maint",
+    "71110 Forestry",
+    "71111 Courts",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71118 Play Ground",
+    "71120 Volleyball",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71129 Gate house",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710301 Ashwood Park/(aka Annecca)": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710302 Hastings Park": [
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710303 Anna Maria Park": [
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710304 Webster Park & Blvds": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710305 Previn Court & Walkways": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710306 Nantyr St. Park": [
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710307 Belle Ewart Park": [
+    "71101 Trails ",
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71111 Courts",
+    "71113 Halls & Gathering Spaces ",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710308 Coral Woods Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710309 Lawrence Ave. Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710310 Dempster Park": [
+    "71101 Trails ",
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710311 Meadows of Stroud": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710312 Pitt St. Park": [
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710313 Linda St. Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710314 12th Line Park": [
+    "71101 Trails ",
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71111 Courts",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710315 Aspen St. Park": [
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710316 Ireton St. Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710317 10th Line Park & Lot": [
+    "71101 Trails ",
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710318 Trinity St. Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710319 Warrington Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710320 Centennial Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71111 Courts",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71118 Play Ground",
+    "71119 Dog park",
+    "71125 Open Space",
+    "71129 Gate house",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710321 Noel Andrade Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710322 Crossroads Park & Oriole": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71111 Courts",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710323 Huron Crt. Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71111 Courts",
+    "71118 Play Ground",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710324 Kidds Lane": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710325 Fennels": [
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710326 Circle Park": [
+    "71110 Forestry",
+    "71125 Open Space",
+    "71133 Special Events",
+    "87000 Vandalism"
+  ],
+  "710327 Orm Membry": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710328 Alcona Community Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710329 Webster and Mill Green Space": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710330 Cookstown Community Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71111 Courts",
+    "71115 Horti culture",
+    "71117 Splash pad",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71131 Rinks & Pads ",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710331 Church St. Park": [
+    "71101 Trails ",
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710332 6th Line Park": [
+    "71110 Forestry",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710334 Cookshill Park": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710335 LSAMI Park 1 (Lormel Gate)": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71111 Courts",
+    "71118 Play Ground",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710336 Belle Aire Beach(aka Spooners)": [
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710337 Bayshore Park": [
+    "71101 Trails ",
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710345 Campus Grounds": [
+    "71101 Trails ",
+    "71102 Ball Diamond",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71120 Volleyball",
+    "71122 Soccer Pitch",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710360 Aboretum": [
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710380 Open Space & Trails": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710385 Cemeteries x2 Legion & 5th side road": [
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710390 Road Ends": [
+    "71101 Trails ",
+    "71103 Beach Area",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710399 Water & Wastewater Grounds": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710400 Cookstown Theatre": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710502 Cookstown Library/Facility": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71116 Library",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710503 Lakeshore Library": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71116 Library",
+    "71125 Open Space",
+    "71133 Special Events",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710504 Stroud Firehall": [
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710505 Alcona Firehall": [
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710506 Lefroy Firehall": [
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710507 Administration Office(NAB)": [
+    "71113 Halls & Gathering Spaces ",
+    "71133 Special Events",
+    "87000 Vandalism"
+  ],
+  "710510 Police North Division": [
+    "71113 Halls & Gathering Spaces ",
+    "71133 Special Events",
+    "87000 Vandalism"
+  ],
+  "710512 Churchill Library": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710513 Cookstown fire hall": [
+    "87000 Vandalism"
+  ],
+  "710514 Operations Building": [
+    "71113 Halls & Gathering Spaces ",
+    "87000 Vandalism"
+  ],
+  "710515 Old Cookstown Library - 19 Queen St": [
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "87000 Vandalism"
+  ],
+  "710516 InnPower Building": [
+    "71110 Forestry",
+    "71113 Halls & Gathering Spaces ",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "71136 Parking Lot ",
+    "87000 Vandalism"
+  ],
+  "710517 Compound": [
+    "87000 Vandalism"
+  ],
+  "710518 Quonset Hut": [
+    "87000 Vandalism"
+  ],
+  "710555 Highway Sign": [
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710560 Town Boulevads": [
+    "71101 Trails ",
+    "71110 Forestry",
+    "71115 Horti culture",
+    "71125 Open Space",
+    "87000 Vandalism"
+  ],
+  "710600 Multi-Purpose Rec. Facility": [
+    "71113 Halls & Gathering Spaces ",
+    "71131 Rinks & Pads ",
+    "71133 Special Events",
+    "87000 Vandalism"
+  ],
+  "720300 Alcona Glen School": [
+    "71113 Halls & Gathering Spaces ",
+    "87000 Vandalism"
+  ],
+  "610100 Rizzardo Health and Wellness Centre": [
+    "17132 Community Health and Wellness",
+    "87000 Vandalism"
+  ]
+}
