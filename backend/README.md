@@ -1,6 +1,6 @@
 ## doc on all the endpoints 
 
-# get /workerlogin
+### get /workerlogin
 
 input:
 
@@ -12,7 +12,7 @@ output:
 1. auth:"true" - logged in
 2. auth:"false" - failed
 
-# get /managerLogIn
+### get /managerLogIn
 
 input:
 
@@ -24,13 +24,13 @@ output:
 1. auth:"true" - logged in
 2. auth:"false" - failed
 
-# get /managerGetTasks (there can only be one manager oop)
+### get /managerGetTasks (there can only be one manager oop)
 
 output:
 
 1. {_id, jobCode, activityCode, managerAssigned, workerAssigned, notes}
 
-# post /assignTask (there can only be one manager oop)
+### post /assignTask (there can only be one manager oop)
 
 input:
 
@@ -39,7 +39,7 @@ input:
 3. notes
 4. taskID
 
-# get /employeeGetTasks
+### get /employeeGetTasks
 
 input:
 
@@ -49,7 +49,7 @@ output:
 
 1. {_id, jobCode, activityCode, managerAssigned, workerAssigned, notes}
 
-# get /getPossibleActivities
+### get /getPossibleActivities
 
 input:
 
@@ -59,13 +59,13 @@ output:
 
 1. [{see json file}]
 
-# post /validateTimecard
+### post /validateTimecard
 
 input:
 
 1. id: timecard ID
 
-# post /completeTask
+### post /completeTask
 
 input:
 
