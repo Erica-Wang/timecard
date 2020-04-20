@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return userid.length == 6 && password.length > 0;
+    return userid.length === 6 && password.length > 0;
   }
 
   function handleSubmit(event) {
@@ -40,13 +40,14 @@ function Login() {
           />
         </FormGroup>
 
+        {/*
         <FormCheck
           type="switch"
           id="custom-switch"
           label="Check this if you're a manager"
           className="form-check"
         />
-
+        */}
 
         <Link to='/employee-dashboard'>
           <Button block bsSize="large" disabled={!validateForm()} type="submit">Login</Button>
