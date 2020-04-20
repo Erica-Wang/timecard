@@ -13,8 +13,8 @@ routes.route('/').get((req,res)=>{
 //if auth = true, authenticated
 //if auth = false, failed
 routes.route('/workerLogIn').get((req,res)=>{
-	var id = "STE001";
-	var pass = "abdd";
+	var id = req.body.id;
+	var pass = req.body.password;
 	const hash = crypto.createHash('sha256').update(pass).digest('base64');
 	var auth = "false";
 	MongoClient.connect(process.env.MONGO_URL, function(err, db) {
@@ -38,8 +38,8 @@ routes.route('/workerLogIn').get((req,res)=>{
 })
 
 routes.route('/managerLogIn').get((req,res)=>{
-	var id = "STE001";
-	var pass = "abdd";
+	var id = req.body.id;
+	var pass = req.body.password;
 	const hash = crypto.createHash('sha256').update(pass).digest('base64');
 	var auth = "false";
 	MongoClient.connect(process.env.MONGO_URL, function(err, db) {
@@ -80,7 +80,9 @@ routes.route('/managerGetTasks').get((req,res)=>{
 	
 });
 
-
+routes.route('/assignTask').get((req,res)=>{
+	var notes = req.body
+})
 
 
 module.exports = routes;
