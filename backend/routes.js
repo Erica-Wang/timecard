@@ -1,5 +1,6 @@
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
+const crypto = require('crypto');
 
 
 const app = express();
@@ -9,24 +10,36 @@ routes.route('/').get((req,res)=>{
 	res.send('hello world');
 });
 
+//if auth = true, authenticated
+//if auth = false, failed
 routes.route('/workerLogIn').get((req,res)=>{
-	var id = req.body.id;
-	var pass = req.body.password;
+	var id = "STE001";
+	var pass = "abdd";
+	const hash = crypto.createHash('sha256').update(pass).digest('base64');
 
+	console.log(hash);
+	var auth = "false";
 	MongoClient.connect(process.env.MONGO_URL, function(err, db) {
 	  if (err) throw err;
-	  var dbo = db.db("workerAccounts");
-	  dbo.collection("tasks").find({}).toArray(function(err, result) {
+	  var dbo = db.db("test");
+	  dbo.collection("workerAccounts").find({}).toArray(function(err, result) {
 	    if (err){ 
-	    	res.json({status: 'error'});
+	    	res.json({"status":"fail"});
 	    	throw err;
+	    	return;
 	    }
 	    console.log(result);
-	    res.json(result);
+	    for(var i = 0; i<result.length; i++){
+	    	console.log(result[i]['workerID']);
+	    	console.log(result[i]['password']);
+	    	if(result[i]['workerID']==id&&result[i]['password']==hash){
+	    		auth = "true"
+	    	}
+	    }
 	    db.close();
+		res.json({auth:auth});
 	  });
 	});
-
 })
 
 routes.route('/managerGetTasks').get((req,res)=>{
