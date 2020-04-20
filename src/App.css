@@ -2,9 +2,6 @@
 
 .App {
   text-align: center;
-}
-
-div {
   font-family: 'Raleway';
 }
 
@@ -17,4 +14,15 @@ h4 {
   text-align: center;
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+.subtitle {
+  color: #273D7C;
+  font-weight: 800;
+}
+
+.logo {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
 }
