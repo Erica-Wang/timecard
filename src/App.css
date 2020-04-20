@@ -15,6 +15,10 @@ h1 {
   padding-top: 2%;
 }
 
+h2 {
+  text-align: center;
+}
+
 h4 {
   text-align: center;
   padding-top: 2%;
@@ -56,9 +60,16 @@ h4 {
   height: auto;
   margin-top: 5%;
 }
+
+.form-check {
+  justify-content: center;
+  margin-bottom: 2.5%;
+}
+
 @media all and (min-width: 480px) {
   .Login {
     padding: 60px 0;
+    text-align: left;
   }
 
   .Login form {

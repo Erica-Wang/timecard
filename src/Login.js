@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormCheck, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './App.css';
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return username.length > 0 && password.length > 0;
+    return userid.length == 6 && password.length > 0;
   }
 
   function handleSubmit(event) {
@@ -21,13 +21,13 @@ function Login() {
         <h2>General Login</h2>
         <h4>IDs will be associated with role type</h4>
 
-        <FormGroup controlId="username" bsSize="large">
+        <FormGroup controlId="userid" bsSize="large">
           User ID
         <FormControl
             autoFocus
-            type="username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
+            type="userid"
+            value={userid}
+            onChange={e => setUserid(e.target.value)}
           />
         </FormGroup>
 
@@ -39,8 +39,17 @@ function Login() {
             type="password"
           />
         </FormGroup>
+
+        <FormCheck
+          type="switch"
+          id="custom-switch"
+          label="Check this if you're a manager"
+          className="form-check"
+        />
+
+
         <Link to='/employee-dashboard'>
-          <Button block bsSize="large" disabled={!validateForm()} type="submit">Login</Button>      
+          <Button block bsSize="large" disabled={!validateForm()} type="submit">Login</Button>
         </Link>
       </form>
     </div>
