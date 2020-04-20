@@ -9,7 +9,7 @@ function Home() {
       <img src={logo} className="logo" alt="Logo" />
       <h1 className="subtitle">Operations Timecard Manager</h1>
       <Link to='/login'>
-        <h2>Login</h2>
+        <h3>Login</h3>
       </Link>
     </div>
   );

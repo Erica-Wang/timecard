@@ -1,17 +1,33 @@
 import React from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
+import logo from './assets/logo.svg';
+import {Navbar} from 'react-bootstrap';
+import Tasks from './Tasks';
+import Timecard from './Timecard';
 
 function EmployeeDashboard() {
   return (
     <div>
+      <Navbar bg="light">
+        <Navbar.Brand>
+          <img className="nav-logo" src={logo} alt="logo" />
+        </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in as: NAME
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Navbar>
       <h1>Employee Dashboard</h1>
-      <Link to="tasks">
-        <h2>Tasks</h2>
-      </Link>
-      <Link to="timecard">
-        <h2>Timecard</h2>
-      </Link>
+      {/* EHEHHEHEHE renderin these boys is fun*/}
+      <Tasks />
+      <Timecard />
+      <Tasks />
+      <Timecard />
+      <Tasks />
+      <Timecard />
+
     </div>
   );
 }
