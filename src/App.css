@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 .App {
-  text-align: center;
   font-family: 'Raleway';
-}
-
-body {
-  margin-top: none;
 }
 
 h1 {
@@ -80,4 +75,20 @@ h4 {
 
 .nav-logo {
   width: 50px;
+}
+
+.task {
+  background-color: turquoise;
+  border-radius: 1em;
+  margin: 2%;
+  padding: 2%;
+}
+
+.task-att {
+  margin: 0;
+}
+.task-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
