@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-function ManagerLogin() {
+function Tasks() {
   return (
     <div>
-      <h1>Manager Login</h1>
+      <h1>Tasks</h1>
     </div>
   );
 }
 
-export default ManagerLogin;
+export default Tasks;

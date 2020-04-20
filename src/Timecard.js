@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-function EmployeeLogin() {
+function Timecard() {
   return (
     <div>
-      <h1>Employee Login</h1>
+      <h1>Timecard</h1>
     </div>
   );
 }
 
-export default EmployeeLogin;
+export default Timecard;
