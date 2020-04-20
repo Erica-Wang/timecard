@@ -4,6 +4,8 @@ import Home from './Home';
 import Login from './Login';
 import ManagerDashboard from './ManagerDashboard';
 import EmployeeDashbord from './EmployeeDashboard';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
