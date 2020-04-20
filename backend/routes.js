@@ -1,6 +1,7 @@
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const crypto = require('crypto');
+var ObjectId = require('mongodb').ObjectId; 
 
 
 const app = express();
@@ -80,8 +81,25 @@ routes.route('/managerGetTasks').get((req,res)=>{
 	
 });
 
-routes.route('/assignTask').get((req,res)=>{
-	var notes = req.body
+routes.route('/assignTask').post((req,res)=>{
+	var notes = req.body.notes;
+	var manager = req.body.managerID;
+	var worker = req.body.workerID;
+	var taskID = new ObjectId(req.body.id);
+	console.log(notes);
+
+	MongoClient.connect(process.env.MONGO_URL, function(err, db) {
+		if (err) throw err;
+		var dbo = db.db("test");
+		var myquery = {_id:taskID};
+		var newvalues = { $set: {managerAssigned: manager, workerAssigned: worker, notes: notes } };
+		dbo.collection("tasks").updateOne(myquery, newvalues, function(err, res) {
+			if (err) throw err;
+			console.log(res);
+			db.close();
+		});
+	});
+	res.json();
 })
 
 
