@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 import Timecard from './Timecard';
 
 
-const Tasks = (props) => {
+export const Tasks = (props) => {
   const notDisabledStyle = {
     backgroundColor: "#ededed",
     borderRadius: "1em",
@@ -54,5 +54,11 @@ const Tasks = (props) => {
     </div>
   );
 }
+export const NoTasks = () => {
+  return (
+    <div>
+        <h1>this dude has no tasks</h1>
+    </div>
+  );
+}
 
-export default Tasks;
