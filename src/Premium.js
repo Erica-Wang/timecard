@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -107,7 +107,13 @@ return (
           <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
-      <Button variant="primary" onClick={confirmPremium}>Confirm Premium</Button>
+      <Container>
+        <Row>
+          <Col className="text-center">
+          <Button variant="primary" onClick={confirmPremium}>Confirm Premiums</Button>
+          </Col>
+        </Row>
+      </Container>
 
     </Form>
 </div>

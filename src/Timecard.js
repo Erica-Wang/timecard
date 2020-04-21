@@ -80,7 +80,7 @@ const Timecard = (props) => {
         <Form.Group>
           <Button onClick={addPremium}>
             <FaPlus />
-            &nbsp;Add Premium
+            &nbsp;Add Premiums
           </Button>
         </Form.Group>
         {info[1]}
