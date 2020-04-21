@@ -106,7 +106,7 @@ input:
 5. hrs
 6. overtime
 7. timeCode
-8: premiums: give a json file, key = premium name, value = empty for "MEAL ALLOWENCE"/"1.5"/"2", # of hrs for rest (SEE FULL LIST IN FRONT OF FILE)
+8: premiums: give a json file, key = premium name, value = empty for "MEAL ALLOWENCE", # of hrs for rest (SEE FULL LIST IN FRONT OF FILE)
 
 
 ### post /validateTimecard
