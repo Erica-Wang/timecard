@@ -211,3 +211,10 @@ nav {
   text-decoration: none;
   height: 1.5em;
 }
+ 
+.export-csv {
+  margin-top: 10px;
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+}
