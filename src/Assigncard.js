@@ -24,7 +24,6 @@ function Assigncard() {
           <Form.Control type="" placeholder="Job Details" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-      <Button className="submit-btn">Submit</Button>
       </Form>
     </div>
   );
