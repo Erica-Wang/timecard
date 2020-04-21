@@ -1,18 +1,56 @@
 import React from 'react';
 import './App.css';
-import {Link} from 'react-router-dom';
 import logo from './assets/logo.svg';
 import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
 import Tasks from './Tasks';
-import Timecard from './Timecard';
+import axios from 'axios';
+
+const taskListTest = require('./assets/testTaskList.json')
 
 function EmployeeDashboard() {
-  
-  const elements = ['hong yi', 'dan', 'tailai', 'erica', 'rahma'];
-  const items = []
 
-  for (const [index, value] of elements.entries()) {
-    items.push(<Tasks jobCode={value} />)
+  const userid = 'STE001';
+  function getUserTasks() {
+    axios.get('http://localhost:5000/employeeGetTasks/', {
+      params: {
+        workerID: userid
+      }
+    })
+    .then(response => {
+      return response.data
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  const taskList = []
+  const taskListEven = []
+  const taskListOdd = []
+ 
+  let count  = 0
+
+  for (const task of taskListTest) {
+    console.log(task);
+    taskList.push(<Tasks 
+      jobCode={task.jobCode} 
+      activityCode={task.activityCode} 
+      notes={task.notes} 
+      managerAssigned={task.managerAssigned} />)
+    if (count % 2 == 0) {
+      taskListEven.push(<Tasks 
+        jobCode={task.jobCode} 
+        activityCode={task.activityCode} 
+        notes={task.notes} 
+        managerAssigned={task.managerAssigned} />)
+    } else {
+      taskListOdd.push(<Tasks 
+        jobCode={task.jobCode} 
+        activityCode={task.activityCode} 
+        notes={task.notes} 
+        managerAssigned={task.managerAssigned} />)
+    }
+      count++
   }
   
   return (
@@ -33,21 +71,14 @@ function EmployeeDashboard() {
       <div className="job">
       <Container>
         <Row>
-          <Col>
-            <Tasks />
-            <Tasks />
+          <Col md>
+            {taskListEven}
           </Col>
-          <Col>
-            <Tasks />
-            <Tasks />
-          </Col>
-          <Col>
-            <Tasks />
-            <Tasks />
+          <Col md>
+            {taskListOdd}
           </Col>
         </Row>
       </Container>
-      {items}
       </div>
     </div>
   );
