@@ -39,9 +39,24 @@ const TimeSheetTask = (props) => {
 //
 
 const TimeSheet = (props) => {
+  
+  var validateTimesheet = ()=>{
+    console.log("validating");
+    axios.get('https://htc2020-timecard.herokuapp.com/validateTimecard', {
+      params: {
+        id: props.data._id
+      }
+    })
+    .then(response => {
+      console.log('validaterd');
+      setButton(<button disabled>Validated</button>);
+    })
+  }
+
   const [taskList, setTaskList] = useState();
   const [userName, setUserName] = useState();
-  const [isFullyValidated, fullyValidate] = useState(false);
+  const [button, setButton] = useState(<button onClick={validateTimesheet}>Validate</button>);
+
   const getCompletedTasks = () => {
     var completedTasks = [];
     for (const task of props.data.entries) {
@@ -60,14 +75,29 @@ const TimeSheet = (props) => {
       setUserName(response.data.name);
     })
   }
+
+
+
+  const getButton = () =>{
+    console.log("getbutton");
+    console.log(props.data.validated);
+    if(props.data.validated=="True"){
+      setButton(<button disabled>Validated</button>);
+    }
+  }
+
+
+
   useEffect(() => {
     getUserName();
     getCompletedTasks();
+    getButton();
   }, []);
   return (
     <div>
       <h6>Name: {userName} <br />Flagged: {props.data.flagged} </h6>
       {taskList}
+      {button}
     </div>
   );
 }
