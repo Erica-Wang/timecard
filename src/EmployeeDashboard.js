@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Link} from 'react-router-dom';
 import logo from './assets/logo.svg';
 import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
 import Tasks from './Tasks';
-import Timecard from './Timecard';
 import axios from 'axios';
 
 const taskListTest = require('./assets/testTaskList.json')
@@ -25,13 +23,34 @@ function EmployeeDashboard() {
       console.log(error);
     });
   }
-  //const tasks = getUserTasks();
 
   const taskList = []
+  const taskListEven = []
+  const taskListOdd = []
+ 
+  let count  = 0
 
   for (const task of taskListTest) {
     console.log(task);
-    taskList.push(<Tasks jobCode={task.jobCode} activityCode={task.activityCode} notes={task.notes} managerAssigned={task.managerAssigned} />)
+    taskList.push(<Tasks 
+      jobCode={task.jobCode} 
+      activityCode={task.activityCode} 
+      notes={task.notes} 
+      managerAssigned={task.managerAssigned} />)
+    if (count % 2 == 0) {
+      taskListEven.push(<Tasks 
+        jobCode={task.jobCode} 
+        activityCode={task.activityCode} 
+        notes={task.notes} 
+        managerAssigned={task.managerAssigned} />)
+    } else {
+      taskListOdd.push(<Tasks 
+        jobCode={task.jobCode} 
+        activityCode={task.activityCode} 
+        notes={task.notes} 
+        managerAssigned={task.managerAssigned} />)
+    }
+      count++
   }
   
   return (
@@ -52,21 +71,14 @@ function EmployeeDashboard() {
       <div className="job">
       <Container>
         <Row>
-          <Col>
-            <Tasks />
-            <Tasks />
+          <Col md>
+            {taskListEven}
           </Col>
-          <Col>
-            <Tasks />
-            <Tasks />
-          </Col>
-          <Col>
-            <Tasks />
-            <Tasks />
+          <Col md>
+            {taskListOdd}
           </Col>
         </Row>
       </Container>
-      {taskList}
       </div>
     </div>
   );
