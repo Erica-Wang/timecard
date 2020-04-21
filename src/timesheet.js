@@ -6,6 +6,8 @@ import axios from 'axios';
 
 
 const TimeSheetTask = (props) => {
+  const [isValidated, validate] = useState(false);
+  const [taskIsInvalid, invalidateTask] = useState(false);
   return (
     <div>
       <p className="task-att">Job: {props.task.jobCode}</p>
@@ -30,6 +32,7 @@ const TimeSheet = (props) => {
   console.log(props);
   const [taskList, setTaskList] = useState();
   const [userName, setUserName] = useState();
+  const [isFullyValidated, fullyValidate] = useState(false);
   const getCompletedTasks = () => {
     var completedTasks = [];
     for (const task of props.data.entries) {
