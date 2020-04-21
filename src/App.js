@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from './Home';
 import Login from './Login';
+import Register from './Register';
 import ManagerDashboard from './ManagerDashboard';
 import EmployeeDashbord from './EmployeeDashboard';
 import Assign from './Assign';
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/login" exact component={Login}/>
+          <Route path="/register" exact component={Register}/>
           <Route path="/manager-dashboard" exact component={ManagerDashboard} />
           <Route path="/employee-dashboard" exact component={EmployeeDashbord} />
           <Route path="/manager-dashboard/assign-tasks" exact component={Assign} />
