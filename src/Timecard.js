@@ -10,11 +10,7 @@ function Timecard() {
   const [info, setInfo] = useState([false, null]);
 
   function addPremium() {
-    if (info[0]) {
-      setInfo([false, null]);
-    } else {
     setInfo([true, <Premium />]);
-    }
   }
 
   return (
@@ -33,6 +29,11 @@ function Timecard() {
         <Form.Group controlId="hour">
           <Form.Label>Hours Worked</Form.Label>
           <Form.Control type="" placeholder="" />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
+        <Form.Group controlId="memo">
+          <Form.Label>Memo</Form.Label>
+          <Form.Control type="" placeholder="Enter any notes to your manager here" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group>
