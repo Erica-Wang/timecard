@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
+import {useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Assigncard from './Assigncard';
@@ -23,10 +24,17 @@ const Assignments = (props) => {
     };
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
 
-    function handleSubmit() {
+    const handleSubmit = () => {
         setAc([false, null, null, true, disabledStyle, "Completed"]);
-        /* Make Axios Post Request here, need get request for id. 
-        */
+        axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
+          params: {
+            workerID: 'STE001',
+            managerID: 'STE001',
+            notes: 'Hi Hello',
+            id: '5e9d03d22e6a6d30eaa897e3'
+          }
+        })
+        console.log('Posted!');
     }
 
     function handleClick() {

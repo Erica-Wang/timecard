@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Form, Button} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
@@ -15,8 +15,18 @@ function createData(pre, hours) {
   return {pre, hours};
 }
 
-function Premium() {
+const Premium = (props) => {
 
+  const [pre, setPre] = useState("Overtime x1.5");
+  const [hours, setHours] = useState("");
+  const [rows, setRows] = useState([]);
+  useEffect(() => {
+    if (props.onChange) {
+      props.onChange(rows);
+    }
+  },
+  [rows]
+  );
 // const tStyle = {
 //     width: "50%",
 //     padding: "0.5em",
@@ -30,6 +40,8 @@ function Premium() {
 //   createData('final', 20)
 // ];
 
+
+
 const useStyles = makeStyles({
   table: {
     minWidth: "100%",
@@ -38,11 +50,7 @@ const useStyles = makeStyles({
 
 const classes = useStyles();
 
-const [pre, setPre] = useState("Overtime x1.5");
-const [hours, setHours] = useState("");
-const [rows, setRows] = useState([]);
-
-function confirmPremium() {
+const confirmPremium = () => {
   setRows(rows => [...rows, createData(pre, hours)]);
   console.log(rows);
 }
