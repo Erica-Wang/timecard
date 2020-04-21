@@ -8,7 +8,8 @@ import axios from 'axios';
 const Validate = (props) => {
   const [timeSheets, setTimeSheets] = useState();
   //const id = props.location.state.userid;
-  const today = "2020 4 21";
+  var date = '';
+  date += new Date().getFullYear() + ' ' + (new Date().getMonth() + 1) + ' ' + new Date().getDate();
   const getTimeSheets = (date) => {
     axios.get('https://htc2020-timecard.herokuapp.com/getTimeCards/')
     .then(response => {
@@ -27,7 +28,7 @@ const Validate = (props) => {
 
   }
   useEffect(() => {
-    getTimeSheets(today);
+    getTimeSheets(date);
   }, []);
 
   
