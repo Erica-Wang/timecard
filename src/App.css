@@ -14,12 +14,6 @@ h2 {
   text-align: center;
 }
 
-h4 {
-  text-align: center;
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
 .dashboard{
   min-height: 100vh;
   background-image: url("assets/images/people.jpg");
@@ -34,7 +28,7 @@ h4 {
 }
 
 .gen-btn {
-  margin-top: 10px;
+  margin-top: 5px;
   display: block !important;
   margin-left: auto;
   margin-right: auto;
@@ -66,24 +60,23 @@ h4 {
 
 /* .task {
   background-color: #ededed;
-  border-radius: 1em;
+  border-radius: 5px;
   margin: 2%;
   padding: 2%;
-} */
+}  */
 
 .task-att {
   margin: 0;
 }
 .task-btn {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 0.5em;
 }
 
 .timecard {
   background-color: gray;
-  margin: 2%;
-  border-radius: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
 }
 
 .timecard-form {
@@ -209,7 +202,6 @@ nav {
 .lo-btn:hover {
   color: grey;
   text-decoration: none;
-  height: 1.5em;
 }
  
 .export-csv {
@@ -217,4 +209,23 @@ nav {
   display: block !important;
   margin-left: auto;
   margin-right: auto;
+}
+
+.search-cont {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.title {
+  text-align: left;
+}
+.search {
+  text-align: right;
+}
+
+b {
+  color: #0275d8;
+}
+
+.premium-form {
+  padding-top:1em
 }

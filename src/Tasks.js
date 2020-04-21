@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {Button} from 'react-bootstrap';
+import {Button, Container, Row, Col} from 'react-bootstrap';
 import Timecard from './Timecard';
 import axios from 'axios';
 
@@ -8,17 +8,16 @@ import axios from 'axios';
 export const Tasks = (props) => {
   const notDisabledStyle = {
     backgroundColor: "#ededed",
-    borderRadius: "1em",
+    borderRadius: "5px",
     color: "black",
-    margin: "2%",
-    padding: "2%",
+    marginBottom: "2%",
+    padding: "4%",
   };
   const disabledStyle = {
     backgroundColor: "#ededed",
     color: "grey",
-    borderRadius: "1em",
-    margin: "2%",
-    padding: "2%",
+    borderRadius: "5px",
+    marginBottom: "2%",
   };
 
 
@@ -100,7 +99,7 @@ export const Tasks = (props) => {
     setTc([
       true, 
       <Timecard onChangeP={eventHandlerPremium} onChangeTC={eventHandlerTimeCard}/>,
-      <Button className="submit-btn" onClick={handleSubmit}>Submit</Button>,
+      <Button variant="secondary" className="submit-btn" onClick={handleSubmit}>Submit</Button>,
       false,
       notDisabledStyle,
       "Collapse"]);
@@ -109,13 +108,25 @@ export const Tasks = (props) => {
   
   return (
     <div className="task" style={tc[4]}>
-      <p className="task-att">Job: {props.jobCode}</p>
-      <p className="task-att">Activity: {props.activityCode} </p>
-      <p className="task-att">Notes: {props.notes}</p>
-      <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
-      <Button className="task-btn" onClick={handleClick} disabled={tc[3]}>{tc[5]}</Button>
-      {tc[1]}
-      {tc[2]}
+      <Container>
+        <Row>
+          <Col md>
+            <p className="task-att"><b>Job:</b> {props.jobCode}</p>
+            <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
+            <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
+            <p className="task-att">Notes: {props.notes}</p>
+            <Button className="task-btn" onClick={handleClick} disabled={tc[3]}>{tc[5]}</Button>
+          </Col>
+          <Col md>
+            {tc[1]}
+          </Col>
+        </Row>
+        <Row>
+          <Col className="text-center">
+            {tc[2]}
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

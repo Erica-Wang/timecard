@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import logo from './assets/logo.svg';
-import {Navbar, Button} from 'react-bootstrap';
+import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
 import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -82,11 +82,24 @@ const EmployeeDashboard = (props) => {
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
-      <h4>Employee Dashboard</h4>
-      {/* EHEHHEHEHE renderin these boys is fun*/}
-      
+      <Container>
+        <Row className="search-cont">
+          <Col className="title" sm={8}><h4>Employee Dashboard</h4></Col>
+          <Col className="search" sm={4}>
+            <div class="md-form mt-0">
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search" />
+            </div>
+          </Col>
+        </Row>
+      </Container>
       <div className="job">
-        {employeeTasks}
+        <Container>
+          <Row>
+            <Col md>
+              {employeeTasks}
+            </Col>
+          </Row>
+        </Container>
       </div>
     </div>
   );
