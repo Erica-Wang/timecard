@@ -111,3 +111,12 @@ h4 {
   font-weight: bold;
   font-family: 'raleway';
 }
+
+.form-check {
+  margin-left: 6%;
+  margin-bottom: 3%;
+}
+
+.dropdown-pay {
+  margin-bottom: 3%;
+}
