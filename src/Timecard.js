@@ -1,28 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Form, Button} from 'react-bootstrap';
+import {FaPlus} from 'react-icons/fa';
+import Premium from './Premium';
 
 function Timecard() {
+
+  // clicked, <Premium />
+  const [info, setInfo] = useState([false, null]);
+
+  function addPremium() {
+    if (info[0]) {
+      setInfo([false, null]);
+    } else {
+    setInfo([true, <Premium />]);
+    }
+  }
+
   return (
     <div className="timecard">
       <Form className="timecard-form">
         <Form.Group controlId="equimentNumber">
-          <Form.Label>Equipment #</Form.Label>
-          <Form.Control type="" placeholder="12-150" />
+          <Form.Label>Equipment Used</Form.Label>
+          <Form.Control type="" placeholder="e.g. 12-150" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Form.Group controlId="hour">
-          <Form.Label>Hours</Form.Label>
+        <Form.Group controlId="rate"> 
+          <Form.Label>Rate</Form.Label>
           <Form.Control type="" placeholder="" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Form.Group controlId="overtime">
-          <Form.Label>Overtime? </Form.Label>
-          <Form.Check inline label="x 1.5" type='radio' />
-          <Form.Check inline label="x 2.0" type='radio' />
+        <Form.Group controlId="hour">
+          <Form.Label>Hours Worked</Form.Label>
+          <Form.Control type="" placeholder="" />
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
+        <Form.Group>
+          <Button onClick={addPremium}>
+            <FaPlus />
+            &nbsp;Add Premium
+          </Button>
+        </Form.Group>
+        {info[1]}
       </Form>
-      <Button className="submit-btn">Submit</Button>
     </div>
   );
 }
