@@ -105,3 +105,9 @@ h4 {
   padding: 2%;
   color: white;
 }
+
+.timeSheetName {
+  color: red;
+  font-weight: bold;
+  font-family: 'raleway';
+}
