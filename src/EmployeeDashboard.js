@@ -20,6 +20,9 @@ function EmployeeDashboard() {
     })
     .then(response => {
       return response.data
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
   //const tasks = getUserTasks();
