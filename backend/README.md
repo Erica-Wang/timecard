@@ -127,3 +127,10 @@ output:
 
 output:
 1. [{timecard objects see in mongo}]
+
+### get /getCSV
+
+prints out all rows of the generated csv file as an array of json files
+
+output:
+1. [{EmployeeName, EmployeeID, EmployeeType, Date, JobCode, ActivityCode, Hours, Timecode, Memo}]
