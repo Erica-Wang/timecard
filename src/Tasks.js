@@ -23,9 +23,15 @@ export const Tasks = (props) => {
 
   // toggle click, Timecard, Button, disabled, currStyle, btnWriting
   const [tc, setTc] = useState([false, null, null, false, notDisabledStyle, "Task Complete"]);
+  const [timeCardData, setTimeCardData] = useState();
 
   function handleSubmit() {
     setTc([false, null, null, true, disabledStyle, "Completed"]);
+  }
+
+  const eventHandler = data => {
+    console.log('got em bois');
+    console.log(data);
   }
 
   function handleClick() {
@@ -34,7 +40,7 @@ export const Tasks = (props) => {
     } else {
     setTc([
       true, 
-      <Timecard />,
+      <Timecard onChange={eventHandler}/>,
       <Button className="submit-btn" onClick={handleSubmit}>Submit</Button>,
       false,
       notDisabledStyle,
