@@ -35,7 +35,7 @@ function Login() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />);
+            setRedir(<Redirect to={{ pathname: '/manager-dashboard', state: { userid: userid } }} />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
@@ -52,7 +52,7 @@ function Login() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to='/employee-dashboard' />);
+            setRedir(<Redirect to={{ pathname: '/employee-dashboard', state: { userid: userid } }} />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
