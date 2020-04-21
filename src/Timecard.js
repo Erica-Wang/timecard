@@ -10,11 +10,7 @@ function Timecard() {
   const [info, setInfo] = useState([false, null]);
 
   function addPremium() {
-    if (info[0]) {
-      setInfo([false, null]);
-    } else {
     setInfo([true, <Premium />]);
-    }
   }
 
   return (
