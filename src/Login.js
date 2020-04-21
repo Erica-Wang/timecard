@@ -101,7 +101,6 @@ function Login() {
 
           <Button
             block
-            variant="secondary"
             bsSize="large"
             disabled={!validateForm()}
             onClick={() => handleSubmit()}
@@ -111,7 +110,7 @@ function Login() {
           <FormGroup bsSize="large" className="register-button">
             If you don't have an account, register here:
           <Link to='/register'>
-              <Button variant="secondary" block bsSize="large">Register</Button>
+              <Button block bsSize="large">Register</Button>
             </Link>
           </FormGroup>
 
