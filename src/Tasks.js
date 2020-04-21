@@ -23,6 +23,7 @@ export const Tasks = (props) => {
 
   // toggle click, Timecard, Button, disabled, currStyle, btnWriting
   const [tc, setTc] = useState([false, null, null, false, notDisabledStyle, "Task Complete"]);
+  const [timeCardData, setTimeCardData] = useState();
 
   function handleSubmit() {
     setTc([false, null, null, true, disabledStyle, "Completed"]);

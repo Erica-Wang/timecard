@@ -15,19 +15,30 @@ const Timecard = (props) => {
 
 
   function addPremium() {
+
+    const eventHandlerPremium = data => {
+      console.log('this is my premium data');
+      console.log(data);
+    }
     if (info[0]) {
       setInfo([false, null]);
     } else {
-    setInfo([true, <Premium />]);
+    setInfo([true, <Premium onChange={eventHandlerPremium} />]);
     }
   }
 
   useEffect(() => {
+    var state = [];
+    state.push(info);
+    state.push(equipmentNum);
+    state.push(rate);
+    state.push(hour);
+
     if (props.onChange) {
-      props.onChange(info);
+      props.onChange(state);
     }
   },
-  [info]
+  [info, equipmentNum, rate, hour]
   );
 
   return (
