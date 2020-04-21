@@ -35,7 +35,7 @@ function Login() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            return <Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />
+            setRedir(<Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
