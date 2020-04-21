@@ -8,6 +8,11 @@ const Timecard = (props) => {
 
   // clicked, <Premium />
   const [info, setInfo] = useState([false, null]);
+  const [equipmentNum, setEquipmentNum] = useState("");
+  const [rate, setRate] = useState("");
+  const [hour, setHour] = useState("");
+
+
 
   function addPremium() {
     if (info[0]) {
@@ -28,17 +33,17 @@ const Timecard = (props) => {
   return (
     <div className="timecard">
       <Form className="timecard-form">
-        <Form.Group controlId="equimentNumber">
+        <Form.Group onChange={(e) => setEquipmentNum(e.target.value)} controlId="equimentNumber">
           <Form.Label>Equipment Used</Form.Label>
           <Form.Control type="" placeholder="e.g. 12-150" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Form.Group controlId="rate"> 
+        <Form.Group onChange={(e) => setRate(e.target.value)} controlId="rate"> 
           <Form.Label>Rate</Form.Label>
           <Form.Control type="" placeholder="" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Form.Group controlId="hour">
+        <Form.Group onChange={(e) => setHour(e.target.value)} controlId="hour">
           <Form.Label>Hours Worked</Form.Label>
           <Form.Control type="" placeholder="" />
           <Form.Text className="text-muted"></Form.Text>
