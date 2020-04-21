@@ -20,9 +20,11 @@ const Premium = (props) => {
   const [pre, setPre] = useState("Overtime x1.5");
   const [hours, setHours] = useState("");
   const [rows, setRows] = useState([]);
+
   useEffect(() => {
-    if (props.onChange) {
-      props.onChange(rows);
+    if (props.onPremiumChange) {
+      props.onPremiumChange(rows);
+      console.log(rows);
     }
   },
   [rows]

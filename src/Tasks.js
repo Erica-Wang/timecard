@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Timecard from './Timecard';
+import axios from 'axios';
 
 
 export const Tasks = (props) => {
@@ -24,14 +25,55 @@ export const Tasks = (props) => {
   // toggle click, Timecard, Button, disabled, currStyle, btnWriting
   const [tc, setTc] = useState([false, null, null, false, notDisabledStyle, "Task Complete"]);
   const [timeCardData, setTimeCardData] = useState();
+  const [premiumData, setPremiumData] = useState();
 
   function handleSubmit() {
+
+    const convertPremiumToJson = (PremiumData) => {
+      var jsonData = {};
+      for (const premium of PremiumData) {
+        console.log(premium);
+        if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
+          //jsonData.premium.pre.toUpperCase() = "";
+        } else {
+         //jsonData.premium.pre.toUpperCase() = premium.hours;
+        }
+      }
+    }
+
+    axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
+      params: {
+        id: props.userid,
+        jobCode: props.jobCode,
+        activityCode: props.activityCode,
+        rate: timeCardData.rate,
+        hrs: timeCardData.hour,
+        premiums: convertPremiumToJson(premiumData),
+        memo: timeCardData.memo,
+        equipment: timeCardData.equipment
+      }
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
     setTc([false, null, null, true, disabledStyle, "Completed"]);
   }
 
-  const eventHandler = data => {
-    console.log('got em bois');
+  const eventHandlerTimeCard = data => {
+    console.log('got em bois: this is my timeCardData');
+    setTimeCardData(data);
     console.log(data);
+    console.log('this is my hour');
+    console.log(data.hour);
+  }
+
+  const eventHandlerPremium = premData => {
+    console.log('got premium data');
+    setPremiumData(premData);
+    console.log(premData);
   }
 
   function handleClick() {
@@ -40,7 +82,7 @@ export const Tasks = (props) => {
     } else {
     setTc([
       true, 
-      <Timecard onChange={eventHandler}/>,
+      <Timecard onChangeP={eventHandlerPremium} onChangeTC={eventHandlerTimeCard}/>,
       <Button className="submit-btn" onClick={handleSubmit}>Submit</Button>,
       false,
       notDisabledStyle,

@@ -116,6 +116,33 @@ h4 {
   background-size: cover;
 }
 
+.background-of {
+  background-image: url("assets/images/innisfilback.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 175vh;
+  display: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.content-of {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  position: absolute;
+  border-radius: 5px;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: left;
+  align-items: center;
+}
+
 .content {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
@@ -165,4 +192,22 @@ h4 {
 
 .btn-note {
   text-align: right;
+}
+
+nav {
+  height: 3em;
+}
+
+.navbar-text {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
+}
+
+.lo-btn:hover {
+  color: grey;
+  text-decoration: none;
+  height: 1.5em;
 }

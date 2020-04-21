@@ -12,33 +12,45 @@ const Timecard = (props) => {
   const [rate, setRate] = useState("");
   const [hour, setHour] = useState("");
   const [memo, setMemo] = useState("");
+  const [premiumData, setPremiumData] = useState([]);
 
 
   function addPremium() {
 
     const eventHandlerPremium = data => {
+      setPremiumData(data);
       console.log('this is my premium data');
       console.log(data);
     }
+
     if (info[0]) {
       setInfo([false, null]);
     } else {
-    setInfo([true, <Premium onChange={eventHandlerPremium} />]);
+    setInfo([true, <Premium onPremiumChange={eventHandlerPremium} />]);
     }
   }
 
   useEffect(() => {
-    var state = [];
-    state.push(info);
-    state.push(equipmentNum);
-    state.push(rate);
-    state.push(hour);
+    if (props.onChangeP) {
+      props.onChangeP(premiumData)
+    }
+  }, [premiumData]);
 
-    if (props.onChange) {
-      props.onChange(state);
+  // updating state for employee tasks
+  useEffect(() => {
+    var state = {
+      info: info,
+      equipmentNum: equipmentNum,
+      rate: rate,
+      hour: hour,
+      memo: memo
+    };
+
+    if (props.onChangeTC) {
+      props.onChangeTC(state);
     }
   },
-  [info, equipmentNum, rate, hour]
+  [info, equipmentNum, rate, hour, memo]
   );
 
   return (

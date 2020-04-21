@@ -79,151 +79,154 @@ function Register() {
         }).catch((err) => {
           console.log(err);
         });
-
     }
   }
 
   return (
-    <div className="Login">
-      {redir}
-      <form >
-        <h2>New User Registration</h2>
-        <h4>Enter in your registration information</h4>
+    <div>
+      <div className="background-of"></div>
+      <div className="Login content-of">
+        {redir}
+        <form >
+          <h2 className="subtitle">New User Registration</h2>
 
-        <FormGroup controlId="username" bsSize="large">
-          What is your full name?
-        <FormControl
-            autoFocus
-            type="username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
+          <FormGroup controlId="username" bsSize="large">
+            What is your full name?
+          <FormControl
+              autoFocus
+              type="username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="userid" bsSize="large">
+            What is your work (user) ID?
+          <FormControl
+              autoFocus
+              type="userid"
+              value={userid}
+              onChange={e => setUserid(e.target.value)}
+            />
+          <Form.Text className="">
+              Please enter (in all caps) the first 3 letters of your first name, followed by 3 digits.
+          </Form.Text>
+          </FormGroup>
+          
+
+          <FormGroup controlId="password" bsSize="large">
+            Please enter a secure password.
+          <FormControl
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              type="password"
+            />
+          <Form.Text className="text-muted">
+            <Form.Label class="subtitle">
+              Do not share your password with anyone else.
+            </Form.Label>
+          </Form.Text>
+          </FormGroup>
+
+          <FormCheck
+            type="switch"
+            id="custom-switch"
+            label="Check this if you're a manager"
+            className="form-check"
+            onClick={checkManager}
           />
-        </FormGroup>
+          
+          <Form.Group 
+            onChange={(e) => setStatus(e.target.value)} 
+            title="What is your job status?">
+            <Form.Label>What is your job status?</Form.Label>
+                <Form.Control 
+                  as="select" 
+                  custom
+                  disabled={isManager()}>
+                <option>Full-time</option>
+                <option>Student</option>
+                <option>Casual</option>
+            </Form.Control>
+        </Form.Group>
 
-        <FormGroup controlId="userid" bsSize="large">
-          What is your work (user) ID?
-        <FormControl
-            autoFocus
-            type="userid"
-            value={userid}
-            onChange={e => setUserid(e.target.value)}
-          />
-        <Form.Text className="text-muted">
-            Please enter (in all caps) the first 3 letters of your first name, followed by 3 digits.
-        </Form.Text>
-        </FormGroup>
-        
+  {/*}
+          <DropdownButton 
+            id="dropdown-basic-button" 
+            title="What is your job status?" 
+            className="dropdown-pay"
+            disabled={isManager()}
+            onSelect={function(evt){selectStatus(evt)}}>
+              <Dropdown.Item eventKey='Full-Time'>Full-time</Dropdown.Item>
+              <Dropdown.Item eventKey='Student'>Student</Dropdown.Item>
+              <Dropdown.Item eventKey='Casual'>Casual</Dropdown.Item>
+          </DropdownButton>
+    */}
 
-        <FormGroup controlId="password" bsSize="large">
-          Please enter a secure password.
-        <FormControl
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-          />
-        <Form.Text className="text-muted">
-            Please do not share your password with anyone else.
-        </Form.Text>
-        </FormGroup>
+          <FormGroup controlId="workunit" bsSize="large">
+            What is your work unit?
+          <FormControl
+              autoFocus
+              type="workunit"
+              value={workunit}
+              disabled={isManager()}
+              onChange={e => setWorkunit(e.target.value)}
+            />
+          </FormGroup>
 
-        <FormCheck
-          type="switch"
-          id="custom-switch"
-          label="Check this if you're a manager"
-          className="form-check"
-          onClick={checkManager}
-        />
-        
-        <Form.Group 
-          onChange={(e) => setStatus(e.target.value)} 
-          title="What is your job status?">
-          <Form.Label>What is your job status?</Form.Label>
-              <Form.Control 
-                as="select" 
-                custom
-                disabled={isManager()}>
-              <option>Full-time</option>
-              <option>Student</option>
-              <option>Casual</option>
-          </Form.Control>
-      </Form.Group>
+          <FormGroup 
+            controlId="department" 
+            bsSize="large">
+            What is your department?
+          <FormControl
+              autoFocus
+              type="department"
+              value={department}
+              disabled={isManager()}
+              onChange={e => setDepartment(e.target.value)}
+            />
+          </FormGroup>
 
-{/*}
-        <DropdownButton 
-          id="dropdown-basic-button" 
-          title="What is your job status?" 
-          className="dropdown-pay"
-          disabled={isManager()}
-          onSelect={function(evt){selectStatus(evt)}}>
-            <Dropdown.Item eventKey='Full-Time'>Full-time</Dropdown.Item>
-            <Dropdown.Item eventKey='Student'>Student</Dropdown.Item>
-            <Dropdown.Item eventKey='Casual'>Casual</Dropdown.Item>
-        </DropdownButton>
+          <Form.Group 
+            onChange={(e) => setPay(e.target.value)} 
+            title="What is your base pay?">
+            <Form.Label>What is your base pay?</Form.Label>
+                <Form.Control 
+                  as="select" 
+                  custom
+                  disabled={isManager()}>
+                <option>1CUPE1</option>
+                <option>1CUPE2</option>
+                <option>1CUPE3</option>
+                <option>2CASUA</option>
+                <option>2STUDS</option>
+            </Form.Control>
+        </Form.Group>
+
+  {/*
+          <DropdownButton 
+            id="dropdown-basic-button" 
+            title="What is your base pay?" 
+            className="dropdown-pay"
+            disabled={!isManager()}> 
+              <Dropdown.Item href="#/action-1">1CUPE1</Dropdown.Item>
+              <Dropdown.Item >1CUPE2</Dropdown.Item>
+              <Dropdown.Item >1CUPE3</Dropdown.Item>
+              <Dropdown.Item >2CASUA</Dropdown.Item>
+              <Dropdown.Item >2STUDS</Dropdown.Item>
+          </DropdownButton>
   */}
 
-        <FormGroup controlId="workunit" bsSize="large">
-          What is your work unit?
-        <FormControl
-            autoFocus
-            type="workunit"
-            value={workunit}
-            disabled={isManager()}
-            onChange={e => setWorkunit(e.target.value)}
-          />
-        </FormGroup>
+          <Button
+            block
+            bsSize="large"
+            disabled={!validateForm()}
+            onClick={() => handleRegister()}
+          >Register
+          </Button>
 
-        <FormGroup 
-          controlId="department" 
-          bsSize="large">
-          What is your department?
-        <FormControl
-            autoFocus
-            type="department"
-            value={department}
-            disabled={isManager()}
-            onChange={e => setDepartment(e.target.value)}
-          />
-        </FormGroup>
-
-        <Form.Group 
-          onChange={(e) => setPay(e.target.value)} 
-          title="What is your base pay?">
-          <Form.Label>What is your base pay?</Form.Label>
-              <Form.Control 
-                as="select" 
-                custom
-                disabled={isManager()}>
-              <option>1CUPE1</option>
-              <option>1CUPE2</option>
-              <option>1CUPE3</option>
-              <option>2CASUA</option>
-              <option>2STUDS</option>
-          </Form.Control>
-      </Form.Group>
-
-{/*
-        <DropdownButton 
-          id="dropdown-basic-button" 
-          title="What is your base pay?" 
-          className="dropdown-pay"
-          disabled={!isManager()}> 
-            <Dropdown.Item href="#/action-1">1CUPE1</Dropdown.Item>
-            <Dropdown.Item >1CUPE2</Dropdown.Item>
-            <Dropdown.Item >1CUPE3</Dropdown.Item>
-            <Dropdown.Item >2CASUA</Dropdown.Item>
-            <Dropdown.Item >2STUDS</Dropdown.Item>
-        </DropdownButton>
-*/}
-
-        <Button
-          block
-          bsSize="large"
-          disabled={!validateForm()}
-          onClick={() => handleRegister()}
-        >Register
-        </Button>
-
-      </form>
+        </form>
+      </div>
     </div>
 
   );
