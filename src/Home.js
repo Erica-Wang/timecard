@@ -15,7 +15,7 @@ function Home() {
           <img src={logo} className="logo" alt="Logo" />
           <p className="subtitle">Operations Timecard Manager</p>
           <Link to='/login'>
-            <Button className="homeLogin" variant="secondary">Start</Button>
+            <Button className="homeLogin">Start</Button>
           </Link>
         </div>
       </div>
