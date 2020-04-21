@@ -11,7 +11,7 @@ const Timecard = (props) => {
   const [equipmentNum, setEquipmentNum] = useState("");
   const [rate, setRate] = useState("");
   const [hour, setHour] = useState("");
-
+  const [memo, setMemo] = useState("");
 
 
   function addPremium() {
@@ -57,6 +57,11 @@ const Timecard = (props) => {
         <Form.Group onChange={(e) => setHour(e.target.value)} controlId="hour">
           <Form.Label>Hours Worked</Form.Label>
           <Form.Control type="" placeholder="" />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
+        <Form.Group onChange={(e) => setMemo(e.target.value)} controlId="memo">
+          <Form.Label>Memo</Form.Label>
+          <Form.Control type="" placeholder="Enter any notes to your manager here" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group>
