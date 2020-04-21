@@ -6,12 +6,12 @@ import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
 
 const EmployeeDashboard = (props) => {
-
-
-  const [state, setState] = useState();
+  const [userInfo, setUserInfo] = useState({Name: ""});
+  const [employeeTasks, setTaskList] = useState();
   const userid = props.location.state.userid;
-  const getUserTasks = () => {
+  const getUserInfo = () => {
     console.log("i am getting tasks");
+    // get employee tasks
     axios.get('https://htc2020-timecard.herokuapp.com/employeeGetTasks', {
       params: {
         workerID: userid
@@ -27,24 +27,41 @@ const EmployeeDashboard = (props) => {
       for (const task of response.data) {
         console.log("I am iterating");
         console.log(task);
-        taskList.push(<Tasks
+        taskList.push(<Tasks // push each of th tasks onto the tasklist
           jobCode={task.jobCode} 
           activityCode={task.activityCode} 
           notes={task.notes} 
           managerAssigned={task.managerAssigned} />);
       }
-      if (response.data.length == 0) {
+      if (response.data.length == 0) { // if the employee has no tasks, render a component saying so
         console.log("oof");
         taskList.push(<NoTasks />);
       }
-      setState(taskList);
+      setTaskList(taskList);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+    // get their user info
+
+    axios.get('https://htc2020-timecard.herokuapp.com/getPersonInfo', {
+      params: {
+        id: userid
+      }
+    })
+    .then(response => {
+      setUserInfo(response.data);
+      console.log("o");
+      console.log(response.data);
     })
     .catch(error => {
       console.log(error);
     });
   }
+
   useEffect(() => {
-    getUserTasks();
+    getUserInfo();
   }, []);
 
   
@@ -56,7 +73,7 @@ const EmployeeDashboard = (props) => {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: {}
+            Signed in as: {userInfo.name}
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
@@ -64,7 +81,7 @@ const EmployeeDashboard = (props) => {
       {/* EHEHHEHEHE renderin these boys is fun*/}
       
       <div className="job">
-        {state}
+        {employeeTasks}
       </div>
     </div>
   );
