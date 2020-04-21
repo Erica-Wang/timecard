@@ -5,11 +5,11 @@ import {Navbar} from 'react-bootstrap';
 import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
 
-const EmployeeDashboard = () => {
+const EmployeeDashboard = (props) => {
 
 
   const [state, setState] = useState();
-  const userid = 'BOB002';
+  const userid = props.location.state.userid;
   const getUserTasks = () => {
     console.log("i am getting tasks");
     axios.get('https://htc2020-timecard.herokuapp.com/employeeGetTasks', {
