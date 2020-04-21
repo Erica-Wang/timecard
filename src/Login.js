@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl, FormCheck } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormCheck, Form } from "react-bootstrap";
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -66,13 +66,12 @@ function Login() {
   return (
     <div>
       <div className="background"></div>
-      <div className="Login content">
+      <div className="Login content-form">
         {redir}
         <form >
-          <h2>General Login</h2>
-          <h4>IDs will be associated with role type</h4>
+          <h2 className="subtitle">Login</h2>
 
-          <FormGroup controlId="userid" bsSize="large">
+          <FormGroup controlId="userid">
             User ID
           <FormControl
               autoFocus
@@ -82,7 +81,7 @@ function Login() {
             />
           </FormGroup>
 
-          <FormGroup controlId="password" bsSize="large">
+          <FormGroup controlId="password">
             Password
           <FormControl
               value={password}
@@ -101,17 +100,18 @@ function Login() {
 
           <Button
             block
-            bsSize="large"
+            className="l-btn"
             disabled={!validateForm()}
             onClick={() => handleSubmit()}
           >Login
           </Button>
 
-          <FormGroup bsSize="large" className="register-button">
-            If you don't have an account, register here:
-          <Link to='/register'>
-              <Button block bsSize="large">Register</Button>
+          <FormGroup className="register-button">
+            
+            <Link to='/register'>
+              <Button className="l-btn" block>Register</Button>
             </Link>
+            <Form.Text className="btn-note">If you don't have an account, register here</Form.Text>
           </FormGroup>
 
         </form>

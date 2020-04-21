@@ -24,9 +24,9 @@ h4 {
   min-height: 100vh;
   background-image: url("assets/images/people.jpg");
   background-position: center;
-   background-size: cover;
-   background-attachment: fixed;
-   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .btn-link {
@@ -131,6 +131,21 @@ h4 {
   align-items: center;
 }
 
+.content-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  position: absolute;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: left;
+  align-items: center;
+}
+
 .subtitle {
   color: white;
 }
@@ -148,6 +163,6 @@ h4 {
   font-size: 10%;
 }
 
-.vert-child {
-
+.btn-note {
+  text-align: right;
 }
