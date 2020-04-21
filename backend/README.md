@@ -135,3 +135,8 @@ prints out all rows of the generated csv file as an array of json files
 
 output:
 1. [{EmployeeName, EmployeeID, EmployeeType, Date, JobCode, ActivityCode, Hours, Timecode, Memo}]
+
+### get /getAllEmployees
+
+output:
+1. [{employee object see mongo}]
