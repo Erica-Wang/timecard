@@ -1,22 +1,39 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Assignments from './Assignments';
 import axios from 'axios';
 
-const assignListTest = require('./assets/testAssignList.json')
-const assignList = []
-const managerDummy = "R JeeIllan"
-for (const assign of assignListTest){
-  assignList.push(<Assignments jobCode={assign.jobCode} activityCode={assign.activityCode} managerAssigned={managerDummy}  />)
-}
+class Assign extends Component{
+  // const assignListTest = require('./assets/testAssignList.json')
+  state = {
+    assignList : []
+  }
+  async componentWillMount(){
+    await axios.get('https://htc2020-timecard.herokuapp.com/managergettasks/')
+        .then(response => {
+          const managerDummy = "R JeeIllan"
+          var tempList = []
+          for (const assign of response.data){
+            tempList.push(<Assignments jobCode={assign.jobCode} activityCode={assign.activityCode} managerAssigned={managerDummy}  />)
+          }
+          this.setState({assignList: tempList});
+          return response.data
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  }
 
-function Assign() {
+render(){
+  console.log(this.state.assignList);
   return (
     <div>
-      <h1>This is where we assign tasks</h1>
-      {assignList}
+      <h1>Assign Tasks</h1>
+      {this.state.assignList}
     </div>
   );
 }
+}
+
 
 export default Assign;
