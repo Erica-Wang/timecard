@@ -1,29 +1,20 @@
-import React from 'react';
+import  { React, useEffect , useState } from 'react';
 import './App.css';
 import timeSheet from './timesheet'
-/*
-function getName(id) {
-  namearr = ['rgil', 'twang', 'dan', 'hyc', 'erica']
-  return namearr[id];
-}
-
-const timeSheetListTest = require('./assets/testTimeSheetList.json')
+import axios from 'axios';
 
 
 
-timeSheetsList = timeSheetTest;
-
-*/
-function Validate() {
-  /*
+const Validate = (props) => {
+  const id = props.location.state.userid;
   
   function getTimesheets() {
-    axios.get('http://localhost:5000/managerGetTimesheets/', {
-      params: {
-        managerid: id
-      }
-    })
+    axios.get('https://htc2020-timecard.herokuapp.com/getTimeCards/')
     .then(response => {
+      for (const timeCard of response.data) {
+        console.log(timeCard);
+        timeSheetsList.push(<timeSheet data={timeCard}/>);
+      }
       return response.data
     })
     .catch(error => {
@@ -32,17 +23,12 @@ function Validate() {
   }
 
   const timeSheetsList = []
-
-  for (const timeSheet of timeSheetsList) {
-    console.log(timeSheet);
-    taskList.push(<timeSheet jobCode={task.jobCode} activityCode={task.activityCode} notes={task.notes} managerAssigned={task.managerAssigned} />)
-  }
   
   return (
     <div>
       {timeSheetsList}
     </div>
-  );*/
+  );
 }
 
 export default Validate;
