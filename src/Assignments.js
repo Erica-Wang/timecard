@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Assigncard from './Assigncard';
@@ -22,28 +21,36 @@ const Assignments = (props) => {
        margin: "2%",
        padding: "2%",
     };
+
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
+    const [assignCardData, setAssignCardData] = useState();
 
     const handleSubmit = () => {
-        setAc([false, null, null, true, disabledStyle, "Completed"]);
+        setAc([false, null, null, true, disabledStyle, "Assigned"]);
         axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
           params: {
             workerID: 'STE001',
             managerID: 'STE001',
-            notes: 'Hi Hello',
-            id: '5e9d03d22e6a6d30eaa897e3'
+            notes: 'Hi Hello Bye',
+            id: props.id
           }
         })
         console.log('Posted!');
     }
 
+    const eventHandler = data => {
+      console.log('got em bois');
+      setAssignCardData(data);
+      console.log(data);
+    }
+
     function handleClick() {
         if (ac[0]) {
-          setAc([false, null, null, false, notDisabledStyle, "Task Complete"]);
+          setAc([false, null, null, false, notDisabledStyle, "Assign"]);
         } else {
         setAc([
           true, 
-          <Assigncard />,
+          <Assigncard onChange={eventHandler}/>,
           <Button className="submit-btn" onClick={handleSubmit}>Submit</Button>,
           false,
           notDisabledStyle,
