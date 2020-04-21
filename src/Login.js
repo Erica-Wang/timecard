@@ -31,7 +31,7 @@ function Login() {
           password: password,
         }
       })
-        .then((res) => {
+        .then(res => {
           if (res.data.status === 'true') {
             console.log(res);
             return <Redirect to={{ pathname: "/manager-dashboard", data: { userid: userid } }} />
@@ -48,7 +48,7 @@ function Login() {
           password: password,
         }
       })
-        .then((res) => {
+        .then(res => {
           if (res.data.status === 'true') {
             console.log(res);
             return <Redirect to={{ pathname: "/employee-dashboard", data: { userid: userid } }} />
