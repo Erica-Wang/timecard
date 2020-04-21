@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl, FormCheck, DropdownButton, Dropdown } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormCheck, Form, DropdownButton, Dropdown } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -10,9 +10,10 @@ function Register() {
   const [password, setPassword] = useState("");
   const [workunit, setWorkunit] = useState("");
   const [department, setDepartment] = useState("");
-  const [redir, setRedir] = useState();
   const [manager, setManager] = useState(false);
-  var basePay = 0;
+  const [status, setStatus] = useState("Full-time");
+  const [pay, setPay] = useState("1CUPE1");
+  const [redir, setRedir] = useState();
 
   function validateForm() {
     return userid.length === 6 && password.length > 0;
@@ -31,39 +32,49 @@ function Register() {
     console.log(manager);
   }
 
-  function handleSubmit() {
+  function handleRegister() {
     console.log("hello");
 
+    // check if the work(user) ID is already taken, if it is, ping them an alert
+    // else, continue
+    console.log(manager);
+    
     if (manager) {
-      axios.get('https://htc2020-timecard.herokuapp.com/managerlogin', {
+      axios.get('https://htc2020-timecard.herokuapp.com/managerregister', {
         params: {
           id: userid,
+          name: username,
           password: password,
         }
       })
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />);
+            setRedir(<Redirect to={{ pathname: '/manager-dashboard', state: { userid: userid } }} />);
           } else {
-            alert("Invalid user ID or password, please try again!");
+            alert("There has been an error, please try again");
           }
         }).catch((err) => {
           console.log(err);
         });
     } else {
-      axios.get('https://htc2020-timecard.herokuapp.com/workerlogin', {
+      axios.get('https://htc2020-timecard.herokuapp.com/workerregister', {
         params: {
           id: userid,
+          name: username,
           password: password,
+          timecode: pay,
+          employeeType: status,
+          workUnit: workunit,
+          department: department
         }
       })
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to={{ pathname: '/employee-dashboard', data: { userid: userid } }} />);
+            setRedir(<Redirect to={{ pathname: '/employee-dashboard', state: { userid: userid } }} />);
           } else {
-            alert("Invalid user ID or password, please try again!");
+            alert("There has been an error, please try again");
           }
         }).catch((err) => {
           console.log(err);
@@ -97,7 +108,11 @@ function Register() {
             value={userid}
             onChange={e => setUserid(e.target.value)}
           />
+        <Form.Text className="text-muted">
+            Please enter (in all caps) the first 3 letters of your first name, followed by 3 digits.
+        </Form.Text>
         </FormGroup>
+        
 
         <FormGroup controlId="password" bsSize="large">
           Please enter a secure password.
@@ -106,6 +121,9 @@ function Register() {
             onChange={e => setPassword(e.target.value)}
             type="password"
           />
+        <Form.Text className="text-muted">
+            Please do not share your password with anyone else.
+        </Form.Text>
         </FormGroup>
 
         <FormCheck
@@ -116,15 +134,32 @@ function Register() {
           onClick={checkManager}
         />
         
+        <Form.Group 
+          onChange={(e) => setStatus(e.target.value)} 
+          title="What is your job status?">
+          <Form.Label>What is your job status?</Form.Label>
+              <Form.Control 
+                as="select" 
+                custom
+                disabled={isManager()}>
+              <option>Full-time</option>
+              <option>Student</option>
+              <option>Casual</option>
+          </Form.Control>
+      </Form.Group>
+
+{/*}
         <DropdownButton 
           id="dropdown-basic-button" 
           title="What is your job status?" 
           className="dropdown-pay"
-          disabled={isManager()}>
-            <Dropdown.Item href="#/action-1">Full-time</Dropdown.Item>
-            <Dropdown.Item>Student</Dropdown.Item>
-            <Dropdown.Item>Casual</Dropdown.Item>
+          disabled={isManager()}
+          onSelect={function(evt){selectStatus(evt)}}>
+            <Dropdown.Item eventKey='Full-Time'>Full-time</Dropdown.Item>
+            <Dropdown.Item eventKey='Student'>Student</Dropdown.Item>
+            <Dropdown.Item eventKey='Casual'>Casual</Dropdown.Item>
         </DropdownButton>
+  */}
 
         <FormGroup controlId="workunit" bsSize="large">
           What is your work unit?
@@ -150,23 +185,41 @@ function Register() {
           />
         </FormGroup>
 
+        <Form.Group 
+          onChange={(e) => setPay(e.target.value)} 
+          title="What is your base pay?">
+          <Form.Label>What is your base pay?</Form.Label>
+              <Form.Control 
+                as="select" 
+                custom
+                disabled={isManager()}>
+              <option>1CUPE1</option>
+              <option>1CUPE2</option>
+              <option>1CUPE3</option>
+              <option>2CASUA</option>
+              <option>2STUDS</option>
+          </Form.Control>
+      </Form.Group>
+
+{/*
         <DropdownButton 
           id="dropdown-basic-button" 
           title="What is your base pay?" 
           className="dropdown-pay"
-          disabled={isManager()}> 
+          disabled={!isManager()}> 
             <Dropdown.Item href="#/action-1">1CUPE1</Dropdown.Item>
-            <Dropdown.Item>1CUPE2</Dropdown.Item>
-            <Dropdown.Item>1CUPE3</Dropdown.Item>
-            <Dropdown.Item>2CASUA</Dropdown.Item>
-            <Dropdown.Item>2STUDS</Dropdown.Item>
+            <Dropdown.Item >1CUPE2</Dropdown.Item>
+            <Dropdown.Item >1CUPE3</Dropdown.Item>
+            <Dropdown.Item >2CASUA</Dropdown.Item>
+            <Dropdown.Item >2STUDS</Dropdown.Item>
         </DropdownButton>
+*/}
 
         <Button
           block
           bsSize="large"
           disabled={!validateForm()}
-          onClick={() => handleSubmit()}
+          onClick={() => handleRegister()}
         >Register
         </Button>
 

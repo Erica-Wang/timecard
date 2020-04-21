@@ -11,23 +11,34 @@ const Timecard = (props) => {
   const [equipmentNum, setEquipmentNum] = useState("");
   const [rate, setRate] = useState("");
   const [hour, setHour] = useState("");
-
+  const [memo, setMemo] = useState("");
 
 
   function addPremium() {
+
+    const eventHandlerPremium = data => {
+      console.log('this is my premium data');
+      console.log(data);
+    }
     if (info[0]) {
       setInfo([false, null]);
     } else {
-    setInfo([true, <Premium />]);
+    setInfo([true, <Premium onChange={eventHandlerPremium} />]);
     }
   }
 
   useEffect(() => {
+    var state = [];
+    state.push(info);
+    state.push(equipmentNum);
+    state.push(rate);
+    state.push(hour);
+
     if (props.onChange) {
-      props.onChange(info);
+      props.onChange(state);
     }
   },
-  [info]
+  [info, equipmentNum, rate, hour]
   );
 
   return (
@@ -46,6 +57,11 @@ const Timecard = (props) => {
         <Form.Group onChange={(e) => setHour(e.target.value)} controlId="hour">
           <Form.Label>Hours Worked</Form.Label>
           <Form.Control type="" placeholder="" />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
+        <Form.Group onChange={(e) => setMemo(e.target.value)} controlId="memo">
+          <Form.Label>Memo</Form.Label>
+          <Form.Control type="" placeholder="Enter any notes to your manager here" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group>

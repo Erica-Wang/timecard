@@ -44,21 +44,6 @@ h4 {
   padding: 1vh;
 }
 
-
-.subtitle {
-  color: #273D7C;
-  font-weight: 800;
-}
-
-.logo {
-  width: 30%;
-  height: auto;
-  margin-top: 5%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 @media all and (min-width: 480px) {
   .Login {
     padding: 60px 0;
@@ -121,6 +106,41 @@ h4 {
   margin-bottom: 3%;
 }
 
-.timesheet-validate {
-  
+.background {
+  background-image: url("assets/images/innisfilback.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-weight: bold;
+  border: 3px solid grey;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  color: white;
+  font-weight: 800;
+}
+
+.logo {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
