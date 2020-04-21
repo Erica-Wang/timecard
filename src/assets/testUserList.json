@@ -1,0 +1,29 @@
+[
+    {
+        "_id": "012983e0kd03ddew",
+        "name": "Steve Doe",
+        "ID": "STE001",
+        "employeeType": "casual",
+        "department": "",
+        "workUnit": "",
+        "password": ""
+    },
+    {
+        "_id": "012983e0kd03ddew",
+        "name": "Max Blow",
+        "ID": "STE001",
+        "employeeType": "casual",
+        "department": "",
+        "workUnit": "",
+        "password": ""
+    },
+    {
+        "_id": "012983e0kd03ddew",
+        "name": "Big Whoa",
+        "ID": "STE001",
+        "employeeType": "casual",
+        "department": "",
+        "workUnit": "",
+        "password": ""
+    }
+]
