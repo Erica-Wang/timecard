@@ -40,7 +40,7 @@ function Register() {
     console.log(manager);
     
     if (manager) {
-      axios.post('https://htc2020-timecard.herokuapp.com/managerregister', {
+      axios.get('https://htc2020-timecard.herokuapp.com/managerregister', {
         params: {
           id: userid,
           name: username,
@@ -50,7 +50,7 @@ function Register() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />);
+            setRedir(<Redirect to={{ pathname: '/manager-dashboard', state: { userid: userid } }} />);
           } else {
             alert("There has been an error, please try again");
           }
@@ -58,7 +58,7 @@ function Register() {
           console.log(err);
         });
     } else {
-      axios.post('https://htc2020-timecard.herokuapp.com/workerregister', {
+      axios.get('https://htc2020-timecard.herokuapp.com/workerregister', {
         params: {
           id: userid,
           name: username,
@@ -72,7 +72,7 @@ function Register() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            setRedir(<Redirect to={{ pathname: '/employee-dashboard', data: { userid: userid } }} />);
+            setRedir(<Redirect to={{ pathname: '/employee-dashboard', state: { userid: userid } }} />);
           } else {
             alert("There has been an error, please try again");
           }
