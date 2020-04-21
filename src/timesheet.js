@@ -8,13 +8,24 @@ import axios from 'axios';
 const TimeSheetTask = (props) => {
   const [isValidated, validate] = useState(false);
   const [taskIsInvalid, invalidateTask] = useState(false);
+  var premiums = [];
+  for(var prem in props.task.premiums){
+    premiums.push(prem+": "+props.task.premiums[prem]);
+  }
+  const prems = premiums.map(function(item){
+    return <li>{item}</li>
+  }); 
+  console.log(props)
   return (
     <div classname="timesheet-validate">
       <p className="task-att">Job: {props.task.jobCode}</p>
       <p className="task-att">Activity: {props.task.activityCode} </p>
       <p className="task-att">Rate: {props.task.rate}</p>
       <p className="task-att">Hours Worked: {props.task.hrs}</p>
-      <p className="task-att">Number of Premiums: {props.task.premiums.length} </p>
+      <p className="task-att">Premiums: {premiums.length}</p>
+      <ul>
+        {prems}
+      </ul>
     </div>
   );
 }
@@ -28,8 +39,6 @@ const TimeSheetTask = (props) => {
 //
 
 const TimeSheet = (props) => {
-  console.log("I got my props");
-  console.log(props);
   const [taskList, setTaskList] = useState();
   const [userName, setUserName] = useState();
   const [isFullyValidated, fullyValidate] = useState(false);
@@ -57,7 +66,7 @@ const TimeSheet = (props) => {
   }, []);
   return (
     <div>
-      <h6>Name: {userName} </h6>
+      <h6>Name: {userName} <br />Flagged: {props.data.flagged} </h6>
       {taskList}
     </div>
   );

@@ -73,7 +73,7 @@ input:
 1. workerID
 2. managerID
 3. notes
-4. taskID
+4. id
 
 ### get /employeeGetTasks
 

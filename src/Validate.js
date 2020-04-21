@@ -13,13 +13,14 @@ const Validate = (props) => {
   const getTimeSheets = (date) => {
     axios.get('https://htc2020-timecard.herokuapp.com/getTimeCards/')
     .then(response => {
-      var timeSheetsList = []
+      var timeSheetsList = [];
       for (const timeCard of response.data) {
         console.log(timeCard);
         if (timeCard.date == date) {
           timeSheetsList.push(<TimeSheet data={timeCard}/>);
         }
       }
+      console.log(timeSheetsList);
       setTimeSheets(timeSheetsList);
     })
     .catch(error => {
