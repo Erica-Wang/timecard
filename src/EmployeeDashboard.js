@@ -47,8 +47,21 @@ function EmployeeDashboard() {
           </Col>
         </Row>
       </Container>
+<<<<<<< HEAD
       {items}
       </div>
+=======
+  
+      </div>
+
+      {/* <Tasks />
+      <Timecard />
+      <Tasks />
+      <Timecard />
+      <Tasks />
+      <Timecard /> */}
+
+>>>>>>> master
     </div>
   );
 }
