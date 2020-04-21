@@ -6,7 +6,7 @@ import Timecard from './Timecard';
 
 const Tasks = (props) => {
   const [tc, setTc] = useState();
-  
+
   return (
     <div className="task">
       <p className="task-att">Job: {props.job}</p>
