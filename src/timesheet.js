@@ -39,7 +39,7 @@ const TimeSheetTask = (props) => {
 //
 
 const TimeSheet = (props) => {
-  
+
   var validateTimesheet = ()=>{
     console.log("validating");
     axios.get('https://htc2020-timecard.herokuapp.com/validateTimecard', {
@@ -53,9 +53,18 @@ const TimeSheet = (props) => {
     })
   }
 
+  var contact = ()=>{
+
+  }
+
   const [taskList, setTaskList] = useState();
   const [userName, setUserName] = useState();
-  const [button, setButton] = useState(<button onClick={validateTimesheet}>Validate</button>);
+  const [button, setButton] = useState(
+    <div>
+      <button onClick={validateTimesheet}>Validate</button>
+      <button onClick={contact}><a href="mailto:employee@example.com">Contact</a></button>
+    </div>
+  );
 
   const getCompletedTasks = () => {
     var completedTasks = [];
