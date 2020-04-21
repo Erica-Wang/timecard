@@ -5,14 +5,30 @@ import logo from './assets/logo.svg';
 import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
 import Tasks from './Tasks';
 import Timecard from './Timecard';
+import axios from 'axios';
+
+const taskListTest = require('./assets/testTaskList.json')
 
 function EmployeeDashboard() {
-  
-  const elements = ['hong yi', 'dan', 'tailai', 'erica', 'rahma'];
-  const items = []
 
-  for (const [index, value] of elements.entries()) {
-    items.push(<Tasks jobCode={value} />)
+  const userid = 'STE001';
+  function getUserTasks() {
+    axios.get('http://localhost:5000/employeeGetTasks/', {
+      params: {
+        workerID: userid
+      }
+    })
+    .then(response => {
+      return response.data
+    });
+  }
+  //const tasks = getUserTasks();
+
+  const taskList = []
+
+  for (const task of taskListTest) {
+    console.log(task);
+    taskList.push(<Tasks jobCode={task.jobCode} activityCode={task.activityCode} notes={task.notes} managerAssigned={task.managerAssigned} />)
   }
   
   return (
@@ -47,7 +63,7 @@ function EmployeeDashboard() {
           </Col>
         </Row>
       </Container>
-      {items}
+      {taskList}
       </div>
     </div>
   );
