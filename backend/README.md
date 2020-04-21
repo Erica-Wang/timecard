@@ -104,8 +104,9 @@ input:
 3. activityCode
 4. rate
 5. hrs
-8: premiums: give a json file, key = premium name, value = empty for "MEAL ALLOWENCE", # of hrs for rest (SEE FULL LIST IN FRONT OF FILE)
-9. memo
+6: premiums: give a json file, key = premium name, value = empty for "MEAL ALLOWENCE", # of hrs for rest (SEE FULL LIST IN FRONT OF FILE)
+7. memo
+8. equipement
 
 
 ### post /validateTimecard
