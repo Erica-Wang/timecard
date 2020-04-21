@@ -7,6 +7,14 @@ import Tasks from './Tasks';
 import Timecard from './Timecard';
 
 function EmployeeDashboard() {
+  
+  const elements = ['hong yi', 'dan', 'tailai', 'erica', 'rahma'];
+  const items = []
+
+  for (const [index, value] of elements.entries()) {
+    items.push(<Tasks jobCode={value} />)
+  }
+  
   return (
     <div>
       <Navbar bg="light">
@@ -39,6 +47,10 @@ function EmployeeDashboard() {
           </Col>
         </Row>
       </Container>
+<<<<<<< HEAD
+      {items}
+      </div>
+=======
   
       </div>
 
@@ -49,6 +61,7 @@ function EmployeeDashboard() {
       <Tasks />
       <Timecard /> */}
 
+>>>>>>> master
     </div>
   );
 }

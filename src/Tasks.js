@@ -21,7 +21,7 @@ const loops = (jsonData) =>{
 }
 const Tasks = (props) => {
   const [tc, setTc] = useState();
-  
+
   return (
     ReactHtmlParser(loops(jsonData))
   );
