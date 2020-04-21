@@ -106,7 +106,7 @@ input:
 5. hrs
 6: premiums: give a json file, key = premium name, value = empty for "MEAL ALLOWENCE", # of hrs for rest (SEE FULL LIST IN FRONT OF FILE)
 7. memo
-8. equipement
+8. equipment
 
 
 ### post /validateTimecard
