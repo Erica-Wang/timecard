@@ -1,39 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import './App.css';
 import logo from './assets/logo.svg';
-import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
+import {Navbar} from 'react-bootstrap';
 import Tasks from './Tasks';
 import axios from 'axios';
 
-const taskListTest = require('./assets/testTaskList.json')
-
-function EmployeeDashboard() {
-
+const EmployeeDashboard = () => {
+  const [state, setState] = useState();
   const userid = 'STE001';
-  function getUserTasks() {
-    axios.get('http://localhost:5000/employeeGetTasks/', {
+  const getUserTasks = () => {
+    console.log("i am getting tasks");
+    axios.get('https://htc2020-timecard.herokuapp.com/employeeGetTasks', {
       params: {
         workerID: userid
       }
     })
     .then(response => {
-      return response.data
+      console.log(response.data);
+      var taskList = [];
+      console.log("I am iterating");
+      for (const task of response.data) {
+        console.log(task);
+        taskList.push(<Tasks
+          jobCode={task.jobCode} 
+          activityCode={task.activityCode} 
+          notes={task.notes} 
+          managerAssigned={task.managerAssigned} />);
+      }
+      setState(taskList);
     })
     .catch(error => {
       console.log(error);
     });
   }
-
-  const taskList = []
- 
-  for (const task of taskListTest) {
-    console.log(task);
-    taskList.push(<Tasks 
-      jobCode={task.jobCode} 
-      activityCode={task.activityCode} 
-      notes={task.notes} 
-      managerAssigned={task.managerAssigned} />)
-  }
+  useEffect(() => {
+    getUserTasks();
+  }, []);
+  console.log("this is my list");
+  console.log(state);
   
   return (
     <div>
@@ -51,7 +55,7 @@ function EmployeeDashboard() {
       {/* EHEHHEHEHE renderin these boys is fun*/}
       
       <div className="job">
-        {taskList}
+        {state}
       </div>
     </div>
   );
