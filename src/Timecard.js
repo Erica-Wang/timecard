@@ -21,6 +21,7 @@ const Timecard = (props) => {
       setPremiumData(data);
       console.log('this is my premium data');
       console.log(data);
+      console.log(premiumData);
     }
 
     if (info[0]) {

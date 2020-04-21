@@ -193,3 +193,28 @@ h4 {
 .btn-note {
   text-align: right;
 }
+
+nav {
+  height: 3em;
+}
+
+.navbar-text {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
+}
+
+.lo-btn:hover {
+  color: grey;
+  text-decoration: none;
+  height: 1.5em;
+}
+ 
+.export-csv {
+  margin-top: 10px;
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+}

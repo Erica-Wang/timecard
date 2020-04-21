@@ -13,6 +13,7 @@
     "material-ui": "^0.20.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
+    "react-csv": "^2.0.3",
     "react-dom": "^16.13.1",
     "react-html-parser": "^2.0.2",
     "react-icons": "^3.9.0",
@@ -43,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-csv-downloader": "^1.6.0"
   }
 }

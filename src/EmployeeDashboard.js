@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import logo from './assets/logo.svg';
-import {Navbar} from 'react-bootstrap';
+import {Navbar, Button} from 'react-bootstrap';
 import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const EmployeeDashboard = (props) => {
   const [userInfo, setUserInfo] = useState({Name: ""});
@@ -75,10 +76,13 @@ const EmployeeDashboard = (props) => {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             Signed in as: {userInfo.name}
+            <Link to='/'>
+              <p style={{textAlign:"right", padding:"none"}}>Log Out</p>  
+            </Link>  
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
-      <h1>Employee Dashboard</h1>
+      <h4>Employee Dashboard</h4>
       {/* EHEHHEHEHE renderin these boys is fun*/}
       
       <div className="job">
