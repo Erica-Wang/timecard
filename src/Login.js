@@ -1,23 +1,70 @@
 import React, { useState } from "react";
-import { Button, FormGroup, FormControl, FormCheck, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Button, FormGroup, FormControl, FormCheck } from "react-bootstrap";
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 
 function Login() {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
+  var manager = false;
 
   function validateForm() {
     return userid.length === 6 && password.length > 0;
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function checkManager() {
+    if (manager) {
+      manager = false;
+    } else {
+      manager = true;
+    }
+  }
+
+  function handleSubmit() {
+    console.log("hello");
+
+    if (manager) {
+      axios.get('https://htc2020-timecard.herokuapp.com/managerlogin', {
+        params: {
+          id: userid,
+          password: password,
+        }
+      })
+        .then((res) => {
+          if (res.data.status === 'true') {
+            console.log(res);
+            return <Redirect to={{ pathname: "/manager-dashboard", data: { userid: userid } }} />
+          } else {
+            alert("Invalid user ID or password, please try again!");
+          }
+        }).catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios.get('https://htc2020-timecard.herokuapp.com/workerlogin', {
+        params: {
+          id: userid,
+          password: password,
+        }
+      })
+        .then((res) => {
+          if (res.data.status === 'true') {
+            console.log(res);
+            return <Redirect to={{ pathname: "/employee-dashboard", data: { userid: userid } }} />
+          } else {
+            alert("Invalid user ID or password, please try again!");
+          }
+        }).catch((err) => {
+          console.log(err);
+        });
+
+    }
   }
 
   return (
     <div className="Login">
-      <form onSubmit={handleSubmit}>
+      <form>
         <h2>General Login</h2>
         <h4>IDs will be associated with role type</h4>
 
@@ -40,18 +87,30 @@ function Login() {
           />
         </FormGroup>
 
-        {/*
         <FormCheck
           type="switch"
           id="custom-switch"
           label="Check this if you're a manager"
           className="form-check"
+          onClick={checkManager}
         />
-        */}
 
-        <Link to='/employee-dashboard'>
-          <Button block bsSize="large" disabled={!validateForm()} type="submit">Login</Button>
-        </Link>
+        <Button
+          block
+          bsSize="large"
+          disabled={!validateForm()}
+          type="submit"
+          onClick= {handleSubmit}
+        >Login
+        </Button>
+
+        <FormGroup bsSize="large" className="register-button">
+          If you don't have an account, register here:
+        <Link to='/register'>
+            <Button block bsSize="large">Register</Button>
+          </Link>
+        </FormGroup>
+
       </form>
     </div>
 
