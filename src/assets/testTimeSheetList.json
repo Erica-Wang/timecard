@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "alksdjflksajdf",
+        "id": "STE001",
+        "date": "2020 4 19",
+        "entries": [
+            {
+                "jobCode": "710560",
+                "activityCode": "71125",
+                "rate": 3,
+                "hrs": 4,
+                "overtime": 1.5,
+                "timeCode": "2CASUA"
+            }
+        ]
+    }
+]

@@ -7,6 +7,7 @@ import './App.css';
 function Login() {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
+  const [redir, setRedir] = useState();
   var manager = false;
 
   function validateForm() {
@@ -32,9 +33,9 @@ function Login() {
         }
       })
         .then(res => {
-          if (res.data.status === 'true') {
+          if (res.data.auth === 'true') {
             console.log(res);
-            return <Redirect to={{ pathname: "/manager-dashboard", data: { userid: userid } }} />
+            setRedir(<Redirect to={{ pathname: '/manager-dashboard', data: { userid: userid } }} />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
@@ -49,9 +50,9 @@ function Login() {
         }
       })
         .then(res => {
-          if (res.data.status === 'true') {
+          if (res.data.auth === 'true') {
             console.log(res);
-            return <Redirect to={{ pathname: "/employee-dashboard", data: { userid: userid } }} />
+            setRedir(<Redirect to='/employee-dashboard' />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
@@ -64,7 +65,8 @@ function Login() {
 
   return (
     <div className="Login">
-      <form>
+      {redir}
+      <form >
         <h2>General Login</h2>
         <h4>IDs will be associated with role type</h4>
 
@@ -99,8 +101,7 @@ function Login() {
           block
           bsSize="large"
           disabled={!validateForm()}
-          type="submit"
-          onClick= {handleSubmit}
+          onClick={() => handleSubmit()}
         >Login
         </Button>
 

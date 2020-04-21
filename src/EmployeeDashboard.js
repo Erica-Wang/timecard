@@ -25,11 +25,7 @@ function EmployeeDashboard() {
   }
 
   const taskList = []
-  const taskListEven = []
-  const taskListOdd = []
  
-  let count  = 0
-
   for (const task of taskListTest) {
     console.log(task);
     taskList.push(<Tasks 
@@ -37,20 +33,6 @@ function EmployeeDashboard() {
       activityCode={task.activityCode} 
       notes={task.notes} 
       managerAssigned={task.managerAssigned} />)
-    if (count % 2 == 0) {
-      taskListEven.push(<Tasks 
-        jobCode={task.jobCode} 
-        activityCode={task.activityCode} 
-        notes={task.notes} 
-        managerAssigned={task.managerAssigned} />)
-    } else {
-      taskListOdd.push(<Tasks 
-        jobCode={task.jobCode} 
-        activityCode={task.activityCode} 
-        notes={task.notes} 
-        managerAssigned={task.managerAssigned} />)
-    }
-      count++
   }
   
   return (
@@ -69,16 +51,7 @@ function EmployeeDashboard() {
       {/* EHEHHEHEHE renderin these boys is fun*/}
       
       <div className="job">
-      <Container>
-        <Row>
-          <Col md>
-            {taskListEven}
-          </Col>
-          <Col md>
-            {taskListOdd}
-          </Col>
-        </Row>
-      </Container>
+        {taskList}
       </div>
     </div>
   );
