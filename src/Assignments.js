@@ -19,8 +19,6 @@ function handleClick() {
       <p className="task-att">Job: {props.jobCode}</p>
       <p className="task-att">Activity: {props.activityCode} </p>
       <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
-      <p className="task-att">Worker Assigned: {props.workerAssigned}</p>
-      <p className="task-att">Notes: {props.notes}</p>
       <Button className="task-btn" onClick={handleClick}>Assign Task</Button>
       {ac}
     </div>
