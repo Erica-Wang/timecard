@@ -9,7 +9,7 @@ const TimeSheetTask = (props) => {
   const [isValidated, validate] = useState(false);
   const [taskIsInvalid, invalidateTask] = useState(false);
   return (
-    <div>
+    <div classname="timesheet-validate">
       <p className="task-att">Job: {props.task.jobCode}</p>
       <p className="task-att">Activity: {props.task.activityCode} </p>
       <p className="task-att">Rate: {props.task.rate}</p>
@@ -57,7 +57,7 @@ const TimeSheet = (props) => {
   }, []);
   return (
     <div>
-      <h1>Name: {userName} </h1>
+      <h6>Name: {userName} </h6>
       {taskList}
     </div>
   );
