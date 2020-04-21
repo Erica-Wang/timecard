@@ -20,7 +20,7 @@ function ManagerDashboard() {
             </Link>
           </Col>
           <Col className="btn-divide">
-             <Link className="btn-link" to="manager-dashboard/validate-timesheets">
+             <Link className="btn-link" to="/manager-dashboard/validate-timesheets">
               <Button className="gen-btn" variant="success" type="submit">
                   Validate Timesheets
               </Button>
