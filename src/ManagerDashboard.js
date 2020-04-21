@@ -13,14 +13,18 @@ function ManagerDashboard() {
       <Container>
         <Row>
           <Col className="btn-divide">
-            <Button className="gen-btn" variant="success" type="submit">
-              <Link className="btn-link" to="/">Manage Today's Tasks </Link>
-            </Button>
+            <Link className="btn-link" to="/manager-dashboard/assign-tasks">
+              <Button className="gen-btn" variant="success" type="submit"> 
+                Assign Tasks
+              </Button>
+            </Link>
           </Col>
           <Col className="btn-divide">
-            <Button className="gen-btn" variant="success" type="submit">
-                <Link className="btn-link" to="/">View Employee Progress</Link>
-            </Button>
+             <Link className="btn-link" to="manager-dashboard/validate-timesheets">
+              <Button className="gen-btn" variant="success" type="submit">
+                  Validate Timesheets
+              </Button>
+            </Link>
           </Col>
         </Row>
       </Container>
