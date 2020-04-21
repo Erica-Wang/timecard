@@ -7,6 +7,7 @@ import './App.css';
 function Login() {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
+  const [redir, setRedir] = useState();
   var manager = false;
 
   function validateForm() {
@@ -51,7 +52,7 @@ function Login() {
         .then(res => {
           if (res.data.auth === 'true') {
             console.log(res);
-            return <Redirect to='/employee-dashboard' />
+            setRedir(<Redirect to='/employee-dashboard' />);
           } else {
             alert("Invalid user ID or password, please try again!");
           }
@@ -64,6 +65,7 @@ function Login() {
 
   return (
     <div className="Login">
+      {redir}
       <form >
         <h2>General Login</h2>
         <h4>IDs will be associated with role type</h4>
