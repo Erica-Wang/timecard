@@ -35,6 +35,11 @@ function Timecard() {
           <Form.Control type="" placeholder="" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
+        <Form.Group controlId="memo">
+          <Form.Label>Memo</Form.Label>
+          <Form.Control type="" placeholder="Enter any notes to your manager here" />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
         <Form.Group>
           <Button onClick={addPremium}>
             <FaPlus />
