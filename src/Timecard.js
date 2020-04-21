@@ -1,17 +1,29 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Form, Button} from 'react-bootstrap';
 import {FaPlus} from 'react-icons/fa';
 import Premium from './Premium';
 
-function Timecard() {
+const Timecard = (props) => {
 
   // clicked, <Premium />
   const [info, setInfo] = useState([false, null]);
 
   function addPremium() {
+    if (info[0]) {
+      setInfo([false, null]);
+    } else {
     setInfo([true, <Premium />]);
+    }
   }
+
+  useEffect(() => {
+    if (props.onChange) {
+      props.onChange(info);
+    }
+  },
+  [info]
+  );
 
   return (
     <div className="timecard">
@@ -29,11 +41,6 @@ function Timecard() {
         <Form.Group controlId="hour">
           <Form.Label>Hours Worked</Form.Label>
           <Form.Control type="" placeholder="" />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
-        <Form.Group controlId="memo">
-          <Form.Label>Memo</Form.Label>
-          <Form.Control type="" placeholder="Enter any notes to your manager here" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group>

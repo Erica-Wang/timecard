@@ -28,13 +28,18 @@ export const Tasks = (props) => {
     setTc([false, null, null, true, disabledStyle, "Completed"]);
   }
 
+  const eventHandler = data => {
+    console.log('got em bois');
+    console.log(data);
+  }
+
   function handleClick() {
     if (tc[0]) {
       setTc([false, null, null, false, notDisabledStyle, "Task Complete"]);
     } else {
     setTc([
       true, 
-      <Timecard />,
+      <Timecard onChange={eventHandler}/>,
       <Button className="submit-btn" onClick={handleSubmit}>Submit</Button>,
       false,
       notDisabledStyle,
