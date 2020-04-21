@@ -11,7 +11,7 @@
 8. "2"
 9. "MEAL ALLOWANCE"
 
-### get /workerRegister
+### post /workerRegister
 
 input:
 
@@ -23,7 +23,7 @@ input:
 6. workUnit
 7. department
 
-### get /managerRegister
+### post /managerRegister
 
 input:
 
