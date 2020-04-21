@@ -1,32 +1,40 @@
-import  { React, useEffect , useState } from 'react';
+import  React, { useEffect , useState } from 'react';
 import './App.css';
-import timeSheet from './timesheet'
+import TimeSheet from './timesheet'
 import axios from 'axios';
 
 
 
 const Validate = (props) => {
-  const id = props.location.state.userid;
-  
-  function getTimesheets() {
+  const [timeSheets, setTimeSheets] = useState();
+  //const id = props.location.state.userid;
+  const today = "2020 4 21";
+  const getTimeSheets = (date) => {
     axios.get('https://htc2020-timecard.herokuapp.com/getTimeCards/')
     .then(response => {
+      var timeSheetsList = []
       for (const timeCard of response.data) {
         console.log(timeCard);
-        timeSheetsList.push(<timeSheet data={timeCard}/>);
+        if (timeCard.date == date) {
+          timeSheetsList.push(<TimeSheet data={timeCard}/>);
+        }
       }
-      return response.data
+      setTimeSheets(timeSheetsList);
     })
     .catch(error => {
       console.log(error);
     });
-  }
 
-  const timeSheetsList = []
+  }
+  useEffect(() => {
+    getTimeSheets(today);
+  }, []);
+
   
   return (
     <div>
-      {timeSheetsList}
+      <h1>these are my timesheets!</h1>
+      {timeSheets}
     </div>
   );
 }
