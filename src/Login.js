@@ -119,3 +119,6 @@ function Login() {
 }
 
 export default Login;
+
+// employee type: full-time, casual, or student
+// 

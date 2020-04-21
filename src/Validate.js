@@ -1,48 +1,43 @@
-import React from 'react';
+import  React, { useEffect , useState } from 'react';
 import './App.css';
-import timeSheet from './timesheet'
-/*
-function getName(id) {
-  namearr = ['rgil', 'twang', 'dan', 'hyc', 'erica']
-  return namearr[id];
-}
-
-const timeSheetListTest = require('./assets/testTimeSheetList.json')
+import TimeSheet from './timesheet'
+import axios from 'axios';
 
 
 
-timeSheetsList = timeSheetTest;
-
-*/
-function Validate() {
-  /*
-  
-  function getTimesheets() {
-    axios.get('http://localhost:5000/managerGetTimesheets/', {
-      params: {
-        managerid: id
-      }
-    })
+const Validate = (props) => {
+  const [timeSheets, setTimeSheets] = useState();
+  //const id = props.location.state.userid;
+  var date = '';
+  date += new Date().getFullYear() + ' ' + (new Date().getMonth() + 1) + ' ' + new Date().getDate();
+  const getTimeSheets = (date) => {
+    axios.get('https://htc2020-timecard.herokuapp.com/getTimeCards/')
     .then(response => {
-      return response.data
+      var timeSheetsList = []
+      for (const timeCard of response.data) {
+        console.log(timeCard);
+        if (timeCard.date == date) {
+          timeSheetsList.push(<TimeSheet data={timeCard}/>);
+        }
+      }
+      setTimeSheets(timeSheetsList);
     })
     .catch(error => {
       console.log(error);
     });
-  }
 
-  const timeSheetsList = []
-
-  for (const timeSheet of timeSheetsList) {
-    console.log(timeSheet);
-    taskList.push(<timeSheet jobCode={task.jobCode} activityCode={task.activityCode} notes={task.notes} managerAssigned={task.managerAssigned} />)
   }
+  useEffect(() => {
+    getTimeSheets(date);
+  }, []);
+
   
   return (
     <div>
-      {timeSheetsList}
+      <h1>these are my timesheets!</h1>
+      {timeSheets}
     </div>
-  );*/
+  );
 }
 
 export default Validate;
