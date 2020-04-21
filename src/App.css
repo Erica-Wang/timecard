@@ -119,9 +119,8 @@ h4 {
 .content {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  font-weight: bold;
-  border: 3px solid grey;
   position: absolute;
+  border-radius: 5px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -129,11 +128,11 @@ h4 {
   width: 80%;
   padding: 20px;
   text-align: center;
+  align-items: center;
 }
 
 .subtitle {
   color: white;
-  font-weight: 800;
 }
 
 .logo {
@@ -143,4 +142,12 @@ h4 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.homeLogin {
+  font-size: 10%;
+}
+
+.vert-child {
+
 }
