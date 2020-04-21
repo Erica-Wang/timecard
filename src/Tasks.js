@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Timecard from './Timecard';
@@ -24,56 +24,73 @@ export const Tasks = (props) => {
 
   // toggle click, Timecard, Button, disabled, currStyle, btnWriting
   const [tc, setTc] = useState([false, null, null, false, notDisabledStyle, "Task Complete"]);
-  const [timeCardData, setTimeCardData] = useState();
-  const [premiumData, setPremiumData] = useState();
+  const [timeCardData, setTimeCardData] = useState('hello world 2');
+  const [premiumData, setPremiumData] = useState('hello world 1');
+  const [posting, startPosting] = useState(false);
 
-  function handleSubmit() {
-
-    const convertPremiumToJson = (PremiumData) => {
-      var jsonData = {};
-      for (const premium of PremiumData) {
-        console.log(premium);
-        if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
-          //jsonData.premium.pre.toUpperCase() = "";
-        } else {
-         //jsonData.premium.pre.toUpperCase() = premium.hours;
-        }
-      }
+  useEffect(() => {
+    if (true) {
+      console.log([timeCardData]);
+      console.log("i updated ^");
     }
-
-    axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
-      params: {
-        id: props.userid,
-        jobCode: props.jobCode,
-        activityCode: props.activityCode,
-        rate: timeCardData.rate,
-        hrs: timeCardData.hour,
-        premiums: convertPremiumToJson(premiumData),
-        memo: timeCardData.memo,
-        equipment: timeCardData.equipment
-      }
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-    setTc([false, null, null, true, disabledStyle, "Completed"]);
-  }
+  }, [timeCardData]);
 
   const eventHandlerTimeCard = data => {
     console.log('got em bois: this is my timeCardData');
     setTimeCardData(data);
     console.log(data);
-    console.log('this is my hour');
-    console.log(data.hour);
+    console.log(timeCardData);
   }
 
   const eventHandlerPremium = premData => {
     console.log('got premium data');
     setPremiumData(premData);
     console.log(premData);
+    console.log(premiumData);
+  }
+  
+  const convertPremiumToJson = (PremiumData) => {
+    var jsonData = {};
+    for (const premium of PremiumData) {
+      console.log(premium);
+      if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
+        //jsonData.premium.pre.toUpperCase() = "";
+      } else {
+       //jsonData.premium.pre.toUpperCase() = premium.hours;
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (posting) {
+      axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
+        params: {
+          id: props.userid,
+          jobCode: props.jobCode,
+          activityCode: props.activityCode,
+          rate: timeCardData.rate,
+          hrs: timeCardData.hour,
+          premiums: convertPremiumToJson(premiumData),
+          memo: timeCardData.memo,
+          equipment: timeCardData.equipment
+        }
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }, [posting]);
+
+  const handleSubmit = () => {
+    console.log('this is what were working w/');
+    console.log(timeCardData);
+    console.log(premiumData);
+    startPosting(true);
+    setTc([false, null, null, true, disabledStyle, "Completed"]);
+    startPosting(false);
   }
 
   function handleClick() {
@@ -102,6 +119,7 @@ export const Tasks = (props) => {
     </div>
   );
 }
+
 export const NoTasks = () => {
   return (
     <div>
