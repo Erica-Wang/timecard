@@ -80,8 +80,8 @@ const Assignments = (props) => {
     }
   return (
     <div className="task" style={ac[4]}>
-      <p className="task-att">Job: {props.jobCode}</p>
-      <p className="task-att">Activity: {props.activityCode} </p>
+      <p className="task-att"><b>Job:</b> {props.jobCode}</p>
+      <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
       <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
       <Button className="task-btn" onClick={handleClick} disabled={ac[3]}>{ac[5]}</Button>
       {ac[1]}
