@@ -275,3 +275,7 @@ b {
 .ed-bc {
   padding: 0.5em;
 }
+
+.SuperAwesomePin {
+  background-image: url("assets/images/marker.svg");
+}

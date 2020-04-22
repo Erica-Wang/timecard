@@ -4,8 +4,6 @@ import {Button, Container, Row, Col} from 'react-bootstrap';
 import Assigncard from './Assigncard';
 import axios from 'axios';
 
-
-
 const Assignments = (props) => {
     const notDisabledStyle = {
       backgroundColor: "#ededed",
@@ -75,7 +73,7 @@ const Assignments = (props) => {
     <div className="task" style={ac[4]}>
       <p className="task-att"><b>Job:</b> {props.jobCode}</p>
       <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
-      <p className="task-att">Job/Activity Description: {props.description} </p>
+      <p className="task-att"><b>Job/Activity Description:</b> {props.description} </p>
       <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
       <Button className="task-btn" onClick={handleClick} disabled={ac[3]}>{ac[5]}</Button>
       {ac[1]}

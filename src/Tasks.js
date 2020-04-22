@@ -122,7 +122,7 @@ export const Tasks = (props) => {
           <Col md>
             <p className="task-att"><b>Job:</b> {props.jobCode}</p>
             <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
-            <p className="task-att">Job/Activity Description: {props.description} </p>
+            <p className="task-att"><b>Job/Activity DescriptionJob/Activity Description:</b> {props.description} </p>
             <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
             <p className="task-att">Notes: {props.notes}</p>
             <Button className="task-btn" onClick={handleClick} disabled={tc[3]}>{tc[5]}</Button>

@@ -5,10 +5,16 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './App.css';
 import GoogleMapReact from 'google-map-react';
+import {FaMapMarkerAlt} from 'react-icons/fa';
+
+const Marker = props => {
+  return <FaMapMarkerAlt color="#0275d8" />
+}
 
 const JobMap = (props) => {
   console.log('i have this many tasks');
   console.log(props.location.state.numTasks);
+
   const [userInfo, setUserInfo] = useState({Name: ""});
   const userid = props.location.state.userid;
   const getUserInfo = () => {
@@ -44,6 +50,58 @@ const JobMap = (props) => {
 //   };
 
 const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
+
+  const [markers, setMarkers] = useState([]);
+
+  const innisfilPoints = [
+    {
+      lat: 44.2806045,
+      lng: -79.6473907
+    },
+    {
+      lat: 44.3181304,
+      lng: -79.5668999
+    },
+    {
+      lat: 44.2286185,
+      lng: -79.5433083
+    },
+    {
+      lat: 44.3953696,
+      lng: -79.5290112
+    },
+    {
+      lat: 44.2804019,
+      lng: -79.6130213
+    },
+    {
+      lat: 44.3475629,
+      lng: -79.6562229
+    },
+    {
+      lat: 44.2997921,
+      lng: -79.5689367
+    },
+    {
+      lat: 44.3006436,
+      lng: -79.5416798
+    },
+    {
+      lat: 44.3475746,
+      lng: -79.5398344
+    },
+    {
+      lat: 44.3009,
+      lng: -79.6115
+    },
+  ];
+
+  for (var i = 0; i < props.location.state.numTasks; i++) {
+    markers.push(<Marker
+      lat={innisfilPoints[i]["lat"]}
+      lng={innisfilPoints[i]["lng"]}
+    />);
+  }
 
   return (
     <div>
@@ -105,7 +163,9 @@ const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
             lng: -79.6115
           }}
           defaultZoom={12}
-        ></GoogleMapReact>
+        >
+          {markers}
+        </GoogleMapReact>
       </div>
     </div>
   );
