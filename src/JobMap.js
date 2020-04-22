@@ -7,6 +7,8 @@ import './App.css';
 import GoogleMapReact from 'google-map-react';
 
 const JobMap = (props) => {
+  console.log('i have this many tasks');
+  console.log(props.location.state.numTasks);
   const [userInfo, setUserInfo] = useState({Name: ""});
   const userid = props.location.state.userid;
   const getUserInfo = () => {

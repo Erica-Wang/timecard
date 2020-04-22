@@ -9,7 +9,7 @@ import JobMap from './JobMap';
 
 const EmployeeDashboard = (props) => {
   const [userInfo, setUserInfo] = useState({Name: ""});
-  const [employeeTasks, setTaskList] = useState();
+  const [employeeTasks, setTaskList] = useState([]);
   const userid = props.location.state.userid;
   const getUserInfo = () => {
     console.log("i am getting tasks");
@@ -99,7 +99,8 @@ const EmployeeDashboard = (props) => {
                 <Link to={{
                 pathname: "/employee-dashboard/job-map",
                 state: {
-                  userid: props.location.state.userid
+                  userid: props.location.state.userid,
+                  numTasks: employeeTasks.length
                 }}}> Map </Link> 
               </Nav.Item>
             </Nav>
