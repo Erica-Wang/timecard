@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Button} from 'react-bootstrap';
+import {Button, Container, Row, Col} from 'react-bootstrap';
 import Assigncard from './Assigncard';
 import axios from 'axios';
 
@@ -12,6 +12,8 @@ const Assignments = (props) => {
       borderRadius: "5px",
       color: "black",
       marginBottom: "2%",
+      marginRight: "2%",
+      marginLeft: "2%",
       padding: "4%",
     };
     const disabledStyle = {
@@ -83,7 +85,13 @@ const Assignments = (props) => {
       <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
       <Button className="task-btn" onClick={handleClick} disabled={ac[3]}>{ac[5]}</Button>
       {ac[1]}
-      {ac[2]}
+      <Container>
+        <Row>
+          <Col className="text-center">
+            {ac[2]}
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
