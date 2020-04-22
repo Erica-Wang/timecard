@@ -28,7 +28,6 @@ function ManagerDashboard() {
       console.log(datas);
       return datas;
     });
-
   }
 
   const columns = [{
@@ -86,7 +85,7 @@ function ManagerDashboard() {
         columns={columns}
         datas={() => exportDatas()}
         text="Export as CSV" />
-                      <Button className="gen-btn" variant="success" type="submit" onClick={() => exportDatas()}>
+                      <Button className="gen-btn" variant="success" type="submit" onClick={console.log(exportDatas())}>
                 Export Datas
               </Button>
     </div>
