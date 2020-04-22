@@ -6,7 +6,8 @@ import Register from './Register';
 import ManagerDashboard from './ManagerDashboard';
 import EmployeeDashbord from './EmployeeDashboard';
 import Assign from './Assign';
-import Validate from './Validate'
+import Validate from './Validate';
+import JobMap from './JobMap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/employee-dashboard" exact component={EmployeeDashbord} />
           <Route path="/manager-dashboard/assign-tasks" exact component={Assign} />
           <Route path="/manager-dashboard/validate-timesheets" exact component={Validate} />
+          <Route path="/employee-dashboard/job-map" exact component={JobMap} />
         </Switch>
       </div>
     </Router>

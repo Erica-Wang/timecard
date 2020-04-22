@@ -271,3 +271,7 @@ b {
 .multi-select{
   color: black !important;
 }
+
+.ed-bc {
+  padding: 0.5em;
+}

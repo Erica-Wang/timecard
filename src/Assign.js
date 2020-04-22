@@ -17,7 +17,7 @@ class Assign extends Component{
           const managerDummy = "Anne K"
           var tempList = []
           for (const assign of response.data){
-            tempList.push(<Assignments id={assign._id} jobCode={assign.jobCode} activityCode={assign.activityCode} managerAssigned={managerDummy} />)
+            tempList.push(<Assignments userid={this.props.location.state.userid} id={assign._id} jobCode={assign.jobCode} activityCode={assign.activityCode} managerAssigned={managerDummy} />)
           }
           this.setState({assignList: tempList});
           return response.data

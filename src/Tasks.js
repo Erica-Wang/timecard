@@ -151,7 +151,7 @@ export const Tasks = (props) => {
 export const NoTasks = () => {
   return (
     <div>
-        <h1>this dude has no tasks</h1>
+        <h4>You have not been assigned any tasks</h4>
     </div>
   );
 }

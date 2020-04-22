@@ -1,53 +1,18 @@
 import React, { useState, useEffect } from "react";
 import logo from './assets/logo.svg';
 import {Navbar, Container, Row, Col, Nav} from 'react-bootstrap';
-import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './App.css';
-import JobMap from './JobMap';
+import GoogleMapReact from 'google-map-react';
 
-const EmployeeDashboard = (props) => {
+const JobMap = (props) => {
   const [userInfo, setUserInfo] = useState({Name: ""});
-  const [employeeTasks, setTaskList] = useState();
   const userid = props.location.state.userid;
   const getUserInfo = () => {
     console.log("i am getting tasks");
-    // get employee tasks
-    axios.get('https://htc2020-timecard.herokuapp.com/employeeGetTasks', {
-      params: {
-        workerID: userid
-      }
-    })
-    .then(response => {
-      console.log("these are the tasks");
-      console.log(response.data);
-      var taskList = [];
-      if (response.data.length === 0) {
-        console.log("this dude has no tasks!");
-      }
-      for (const task of response.data) {
-        console.log("I am iterating");
-        console.log(task);
-        taskList.push(<Tasks // push each of th tasks onto the tasklist
-          jobCode={task.jobCode} 
-          activityCode={task.activityCode} 
-          notes={task.notes} 
-          managerAssigned={task.managerAssigned}
-          id={userid} />);
-      }
-      if (response.data.length === 0) { // if the employee has no tasks, render a component saying so
-        console.log("oof");
-        taskList.push(<NoTasks />);
-      }
-      setTaskList(taskList);
-    })
-    .catch(error => {
-      console.log(error);
-    });
 
     // get their user info
-
     axios.get('https://htc2020-timecard.herokuapp.com/getPersonInfo', {
       params: {
         id: userid
@@ -67,6 +32,16 @@ const EmployeeDashboard = (props) => {
     getUserInfo();
   }, []);
 
+//   const AnyReactComponent = ({ text }) => <div>{text}</div>;
+//   const stuff = {
+//     center: {
+//       lat: 59.95,
+//       lng: 30.33
+//     },
+//     zoom: 11
+//   };
+
+const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
 
   return (
     <div>
@@ -89,7 +64,7 @@ const EmployeeDashboard = (props) => {
           <Col className="search" sm={4}>
             <Nav className="justify-content-end" activeKey="/home">
               <Nav.Item className="ed-bc">
-              <Link to={{
+                <Link to={{
                 pathname: "/employee-dashboard",
                 state: {
                   userid: props.location.state.userid
@@ -106,17 +81,33 @@ const EmployeeDashboard = (props) => {
           </Col>
         </Row>
       </Container>
-      <div className="job">
-        <Container>
-          <Row>
-            <Col md>
-              {employeeTasks}
-            </Col>
-          </Row>
-        </Container>
+      <h1>IM THE MAP IM THE MAP IM THE MAP MAP MAP</h1>
+      {/* <div style={{height: '100vh', width: '500px'}}>
+          <GoogleMapReact 
+            bootstrapURLKeys={{key: 'AIzaSyCb29b7bfQhT1MTAwDgH54Xj51u7pzFP50'}}
+            defaultCenter={stuff.center}
+            defaultZooM={stuff.zoom}>
+            <AnyReactComponent 
+                lat={59.955413}
+                lng={30.337884}
+                text="My Marker"
+            />
+          </GoogleMapReact>
+
+      </div> */}
+
+      <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={apiKey}
+          defaultCenter={{
+            lat: 59.95,
+            lng: 30.33
+          }}
+          defaultZoom={11}
+        ></GoogleMapReact>
       </div>
     </div>
   );
 }
 
-export default EmployeeDashboard;
+export default JobMap;
