@@ -46,7 +46,7 @@ render(){
       </Navbar.Collapse>
     </Navbar>
   </div>
-      <h1>Assign Tasks</h1>
+  <h4 className="t-valid">Assign Tasks</h4>
       {this.state.assignList}
     </div>
   );
