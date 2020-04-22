@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
 import logo from './assets/logo.svg';
-import {Navbar, Button, Container, Row, Col} from 'react-bootstrap';
+import {Navbar, Container, Row, Col} from 'react-bootstrap';
 import { Tasks, NoTasks } from './Tasks';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import './App.css';
 
 const EmployeeDashboard = (props) => {
   const [userInfo, setUserInfo] = useState({Name: ""});
@@ -22,7 +22,7 @@ const EmployeeDashboard = (props) => {
       console.log("these are the tasks");
       console.log(response.data);
       var taskList = [];
-      if (response.data.length == 0) {
+      if (response.data.length === 0) {
         console.log("this dude has no tasks!");
       }
       for (const task of response.data) {
@@ -35,7 +35,7 @@ const EmployeeDashboard = (props) => {
           managerAssigned={task.managerAssigned}
           id={userid} />);
       }
-      if (response.data.length == 0) { // if the employee has no tasks, render a component saying so
+      if (response.data.length === 0) { // if the employee has no tasks, render a component saying so
         console.log("oof");
         taskList.push(<NoTasks />);
       }

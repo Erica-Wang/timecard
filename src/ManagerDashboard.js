@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import logo from './assets/logo.svg';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
+import './App.css';
 
 const ManagerDashboard = (props) => {
 
@@ -62,26 +62,6 @@ const ManagerDashboard = (props) => {
   }, {
     id: 'Timecode',
     displayName: 'Timecode'
-  }];
-
-  const datas2 = [{
-    EmployeeName: 'Rahma',
-    EmployeeID: 'loves',
-    EmployeeType: 'smoking',
-    Date: 'crack',
-    JobCode: 'and',
-    ActivityCode: 'doing',
-    Hours: 4,
-    TimeCode: 'weed'
-  }, {
-    EmployeeName: 'Rahma',
-    EmployeeID: 'loves',
-    EmployeeType: 'smoking',
-    Date: 'crack',
-    JobCode: 'and',
-    ActivityCode: 'doing',
-    Hours: 4,
-    TimeCode: 'weed'
   }];
 
   return (
