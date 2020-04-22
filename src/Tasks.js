@@ -81,7 +81,7 @@ export const Tasks = (props) => {
       console.log(timeCardData.memo);
       console.log(timeCardData.equipment);
       console.log("I made this juan");
-      console.log(convertPremiumToJson(premiumData)); /*
+      console.log(convertPremiumToJson(premiumData)); 
       
       axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
         params: {
@@ -100,7 +100,7 @@ export const Tasks = (props) => {
       })
       .catch(error => {
         console.log(error);
-      }); */
+      }); 
     }
   }, [posting]);
 
