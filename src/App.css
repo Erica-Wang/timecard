@@ -229,3 +229,16 @@ b {
 .premium-form {
   padding-top:1em
 }
+
+.t-valid {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.validate-cards {
+  background-color: "red";
+  padding: "4%";
+  margin: "2%";
+  border-radius: "5px";
+}

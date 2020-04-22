@@ -18,6 +18,7 @@ export const Tasks = (props) => {
     color: "grey",
     borderRadius: "5px",
     marginBottom: "2%",
+    padding: "4%",
   };
 
 
@@ -51,27 +52,42 @@ export const Tasks = (props) => {
   const convertPremiumToJson = (PremiumData) => {
     var jsonData = {};
     for (const premium of PremiumData) {
-      console.log(premium);
+      //console.log(premium);
       if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
-        //jsonData.premium.pre.toUpperCase() = "";
+        jsonData[premium.pre.toUpperCase()] = "";
       } else {
-       //jsonData.premium.pre.toUpperCase() = premium.hours;
+       jsonData[premium.pre.toUpperCase()] = premium.hours;
       }
     }
+    console.log(jsonData);
+    return jsonData;
   }
 
   useEffect(() => {
+    console.log('this is what were working w/');
+    console.log(timeCardData);
+    console.log(premiumData);
     if (posting) {
+      console.log(props.id);
+      console.log(props.jobCode);
+      console.log(props.activityCode);
+      console.log(timeCardData.rate);
+      console.log(timeCardData.hour);
+      console.log(timeCardData.memo);
+      console.log(timeCardData.equipment);
+      console.log("I made this juan");
+      console.log(convertPremiumToJson(premiumData));
+      /*
       axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
         params: {
-          id: props.userid,
+          id: props.id,
           jobCode: props.jobCode,
           activityCode: props.activityCode,
-          rate: timeCardData.rate,
-          hrs: timeCardData.hour,
+          rate: Number(timeCardData.rate),
+          hrs: Number(timeCardData.hour),
           premiums: convertPremiumToJson(premiumData),
           memo: timeCardData.memo,
-          equipment: timeCardData.equipment
+          equipment: Number(timeCardData.equipment)
         }
       })
       .then(response => {
@@ -79,17 +95,13 @@ export const Tasks = (props) => {
       })
       .catch(error => {
         console.log(error);
-      });
+      }); */
     }
   }, [posting]);
 
   const handleSubmit = () => {
-    console.log('this is what were working w/');
-    console.log(timeCardData);
-    console.log(premiumData);
     startPosting(true);
     setTc([false, null, null, true, disabledStyle, "Completed"]);
-    startPosting(false);
   }
 
   function handleClick() {
