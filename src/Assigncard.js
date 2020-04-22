@@ -10,23 +10,17 @@ import Multiselect from "react-multi-select-component";
 const Assigncard = (props) => {
 
   // clicked, <Premium />
-  const [info, setInfo] = useState("");
-  const [employee, setEmployee] = useState("");
+  const [employees, setEmployees] = useState("");
   const [notes, setNotes] = useState("");
   const [users, setUsers] = useState("");
 
-  const options = [
-    {label: "One", value: 1},
-    {label: "Two", value: 2},
-    {label: "Three", value: 3},
-  ];
 
   const getUsers = () => {
     const tempList = []
     axios.get('https://htc2020-timecard.herokuapp.com/getAllEmployees/')
     .then(response => {
       for (const user of response.data){
-        tempList.push({label: user.name, value : user.name});
+        tempList.push({label: user.name, value : user.ID});
       }
       setUsers(tempList);
       return response.data
@@ -43,7 +37,7 @@ const Assigncard = (props) => {
   // updating state for employee tasks
   useEffect(() => {
     var state = {
-      employee: employee,
+      employees: employees,
       notes: notes,
       users: users
     };
@@ -53,7 +47,7 @@ const Assigncard = (props) => {
       props.onChange(state);
     }
   },
-  [employee, notes]
+  [employees, notes, users]
   );
 
   return (
@@ -66,8 +60,8 @@ const Assigncard = (props) => {
           </Form.Group>
           <Multiselect className = "multi-select"
             options = {users}
-            value={employee}
-            onChange={setEmployee}
+            value={employees}
+            onChange={setEmployees}
             labelledBy={"Select Employees"}
           />
           
