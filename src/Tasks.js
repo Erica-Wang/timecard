@@ -52,8 +52,13 @@ export const Tasks = (props) => {
   const convertPremiumToJson = (PremiumData) => {
     var jsonData = {};
     for (const premium of PremiumData) {
-      //console.log(premium);
-      if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
+      if (premium.pre == "Overtime x1.5") {
+        jsonData["1.5"] = premium.hours;
+      } else if (premium.pre == "Overtime x2.0") {
+        jsonData["2"] = premium.hours;
+      } else if (premium.pre == "Stand By Premium") {
+        jsonData["DAILY STAND BY"] = premium.hours;
+      } else if (premium.pre.toUpperCase() == 'MEAL ALLOWANCE') {
         jsonData[premium.pre.toUpperCase()] = "";
       } else {
        jsonData[premium.pre.toUpperCase()] = premium.hours;
@@ -76,18 +81,18 @@ export const Tasks = (props) => {
       console.log(timeCardData.memo);
       console.log(timeCardData.equipment);
       console.log("I made this juan");
-      console.log(convertPremiumToJson(premiumData));
-      /*
+      console.log(convertPremiumToJson(premiumData)); /*
+      
       axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
         params: {
           id: props.id,
           jobCode: props.jobCode,
           activityCode: props.activityCode,
-          rate: Number(timeCardData.rate),
-          hrs: Number(timeCardData.hour),
+          rate: timeCardData.rate,
+          hrs: timeCardData.hour,
           premiums: convertPremiumToJson(premiumData),
           memo: timeCardData.memo,
-          equipment: Number(timeCardData.equipment)
+          equipment: timeCardData.equipment
         }
       })
       .then(response => {

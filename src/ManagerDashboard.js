@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Link, Route } from 'react-router-dom';
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
@@ -9,8 +9,11 @@ import CsvDownloader from 'react-csv-downloader';
 
 const ManagerDashboard = (props) => {
 
-  function exportDatas() {
-    axios.get('https://htc2020-timecard.herokuapp.com/getcsv').then(res => {
+  const [csv, setCSV] = useState();
+
+  const exportDatas = () => {
+    axios.get('https://htc2020-timecard.herokuapp.com/getcsv')
+    .then(res => {
       const datas = [];
       var i = 0;
       for (i = 0; i < res.data.length; i++){
@@ -27,9 +30,13 @@ const ManagerDashboard = (props) => {
         datas.push(row);
       }
       console.log(datas);
-      return datas;
+      setCSV(datas);
     });
   }
+
+  useEffect(() => {
+    exportDatas();
+  }, []);
 
   const columns = [{
     id: 'EmployeeName',
@@ -99,9 +106,9 @@ const ManagerDashboard = (props) => {
           filename="Worker Timesheets"
           separator=";"
           columns={columns}
-          datas={() => exportDatas()}
+          datas={csv}
           text="Export as CSV" />
-                        <Button className="gen-btn" variant="success" type="submit" onClick={console.log(exportDatas())}>
+                        <Button className="gen-btn" variant="success" type="submit" >
                   Export Datas
                 </Button>
       </div>
