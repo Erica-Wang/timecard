@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
 import './App.css';
+import {FaCloudDownloadAlt} from "react-icons/fa";
 
 const ManagerDashboard = (props) => {
 
@@ -87,15 +88,15 @@ const ManagerDashboard = (props) => {
         <Container>
           <Row>
             <Col className="btn-divide">
-              <Link className="btn-link" to="/manager-dashboard/assign-tasks">
-                <Button className="gen-btn" variant="success" type="submit">
+              <Link to="/manager-dashboard/assign-tasks">
+                <Button className="gen-btn" type="submit">
                   Assign Tasks
                 </Button>
               </Link>
             </Col>
             <Col className="btn-divide">
-              <Link className="btn-link" to="/manager-dashboard/validate-timesheets">
-                <Button className="gen-btn" variant="success" type="submit">
+              <Link to="/manager-dashboard/validate-timesheets">
+                <Button className="gen-btn" type="submit">
                   Validate Timesheets
                 </Button>
               </Link>
@@ -107,7 +108,13 @@ const ManagerDashboard = (props) => {
           separator=";"
           columns={columns}
           datas={csv}
-          text="Export as CSV" />
+          text="Export as CSV">
+            <Button variant="secondary">
+              <FaCloudDownloadAlt />
+              &nbsp;&nbsp;Export Timecards as CSV
+            </Button>
+        </CsvDownloader>
+  
       </div>
     </div>
 

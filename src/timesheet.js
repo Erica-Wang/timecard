@@ -4,8 +4,6 @@ import {Button, Col, Container, Row} from 'react-bootstrap';
 import axios from 'axios';
 import { black } from 'material-ui/styles/colors';
 
-
-
 const TimeSheetTask = (props) => {
 
   const [isValidated, validate] = useState(false);
