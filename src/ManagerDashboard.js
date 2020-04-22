@@ -88,7 +88,11 @@ const ManagerDashboard = (props) => {
         <Container>
           <Row>
             <Col className="btn-divide">
-              <Link to="/manager-dashboard/assign-tasks">
+              <Link to={{
+                pathname: "/manager-dashboard/assign-tasks",
+                state: {
+                  userid: props.location.state.userid
+                }}}>
                 <Button className="gen-btn" type="submit">
                   Assign Tasks
                 </Button>
@@ -108,7 +112,11 @@ const ManagerDashboard = (props) => {
               </CsvDownloader>
             </Col>
             <Col className="btn-divide">
-              <Link to="/manager-dashboard/validate-timesheets">
+              <Link to={{
+                pathname: "/manager-dashboard/validate-timesheets",
+                state: {
+                  userid: props.location.state.userid
+                }}}>
                 <Button className="gen-btn" type="submit">
                   Validate Timesheets
                 </Button>

@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import Assignments from './Assignments';
 import axios from 'axios';
+import { Navbar } from 'react-bootstrap';
+import logo from './assets/logo.svg';
+import { Link } from 'react-router-dom';
 
 class Assign extends Component{
   // const assignListTest = require('./assets/testAssignList.json')
@@ -28,6 +31,21 @@ render(){
   console.log(this.state.assignList);
   return (
     <div>
+      <div className="nav-md">
+    <Navbar bg="light">
+      <Navbar.Brand>
+        <img className="nav-logo" src={logo} alt="logo" />
+      </Navbar.Brand>
+      <Navbar.Collapse className="justify-content-end">
+        <Navbar.Text>
+          Signed in as: {this.props.location.state.userid}
+          <Link to='/'>
+            <p style={{ textAlign: "right", padding: "none" }}>Log Out</p>
+          </Link>
+        </Navbar.Text>
+      </Navbar.Collapse>
+    </Navbar>
+  </div>
       <h1>Assign Tasks</h1>
       {this.state.assignList}
     </div>
