@@ -60,7 +60,7 @@ const ManagerDashboard = (props) => {
     id: 'Hours',
     displayName: 'Hours'
   }, {
-    id: 'TimeCode',
+    id: 'Timecode',
     displayName: 'Timecode'
   }];
 
