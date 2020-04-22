@@ -108,7 +108,6 @@ input:
 7. memo
 8. equipment
 
-
 ### post /validateTimecard
 
 input:

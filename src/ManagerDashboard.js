@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Link, Route } from 'react-router-dom';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
+import logo from './assets/logo.svg';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
 
-function ManagerDashboard() {
+const ManagerDashboard = (props) => {
+
   const [csv, setCSV] = useState();
 
-  useEffect(() => {
-    setCSV(exportDatas());
-  }, []);
-  
-  function exportDatas() {
-    axios.get('https://htc2020-timecard.herokuapp.com/getcsv').then(res => {
+  const exportDatas = () => {
+    axios.get('https://htc2020-timecard.herokuapp.com/getcsv')
+    .then(res => {
       const datas = [];
       var i = 0;
       for (i = 0; i < res.data.length; i++) {
@@ -31,10 +30,13 @@ function ManagerDashboard() {
         datas.push(row);
       }
       console.log(datas);
-      console.log(datas2);
-      return datas;
+      setCSV(datas);
     });
   }
+
+  useEffect(() => {
+    exportDatas();
+  }, []);
 
   const columns = [{
     id: 'EmployeeName',
@@ -83,37 +85,53 @@ function ManagerDashboard() {
   }];
 
   return (
-    <div class="dashboard">
-      <h1>Manager Dashboard</h1>
-      <hr></hr>
-      <h4>Manager Options</h4>
-      <Container>
-        <Row>
-          <Col className="btn-divide">
-            <Link className="btn-link" to="/manager-dashboard/assign-tasks">
-              <Button className="gen-btn" variant="success" type="submit">
-                Assign Tasks
-              </Button>
-            </Link>
-          </Col>
-          <Col className="btn-divide">
-            <Link className="btn-link" to="/manager-dashboard/validate-timesheets">
-              <Button className="gen-btn" variant="success" type="submit">
-                Validate Timesheets
-              </Button>
-            </Link>
-          </Col>
-        </Row>
-      </Container>
-      <CsvDownloader
-        filename="Worker Timesheets"
-        separator=";"
-        columns={columns}
-        datas={csv}
-        text="Export as CSV" />
-      <Button className="gen-btn" type="submit" onClick={() => exportDatas()}>
-        Export Datas
-              </Button>
+    <div>
+      <div className="background"></div>
+      <div className="nav-md">
+        <Navbar bg="light">
+            <Navbar.Brand>
+              <img className="nav-logo" src={logo} alt="logo" />
+            </Navbar.Brand>
+            <Navbar.Collapse className="justify-content-end">
+              <Navbar.Text>
+                Signed in as: {props.location.state.userid}
+                <Link to='/'>
+                  <p style={{textAlign:"right", padding:"none"}}>Log Out</p>  
+                </Link>  
+              </Navbar.Text>
+            </Navbar.Collapse>
+          </Navbar>
+        </div>
+     <div className="content">
+        <h4 className="subtitle">Manager Dashboard</h4>
+        <Container>
+          <Row>
+            <Col className="btn-divide">
+              <Link className="btn-link" to="/manager-dashboard/assign-tasks">
+                <Button className="gen-btn" variant="success" type="submit">
+                  Assign Tasks
+                </Button>
+              </Link>
+            </Col>
+            <Col className="btn-divide">
+              <Link className="btn-link" to="/manager-dashboard/validate-timesheets">
+                <Button className="gen-btn" variant="success" type="submit">
+                  Validate Timesheets
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
+        <CsvDownloader
+          filename="Worker Timesheets"
+          separator=";"
+          columns={columns}
+          datas={csv}
+          text="Export as CSV" />
+                        <Button className="gen-btn" variant="success" type="submit" >
+                  Export Datas
+                </Button>
+      </div>
     </div>
 
   );

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Assigncard from './Assigncard';
@@ -8,25 +8,33 @@ import axios from 'axios';
 
 const Assignments = (props) => {
     const notDisabledStyle = {
-        backgroundColor: "#ededed",
-        borderRadius: "1em",
-        color: "black",
-        margin: "2%",
-        padding: "2%",
+      backgroundColor: "#ededed",
+      borderRadius: "5px",
+      color: "black",
+      marginBottom: "2%",
+      padding: "4%",
     };
     const disabledStyle = {
-       backgroundColor: "#ededed",
-       color: "grey",
-       borderRadius: "1em",
-       margin: "2%",
-       padding: "2%",
+      backgroundColor: "#ededed",
+      color: "grey",
+      borderRadius: "5px",
+      marginBottom: "2%",
+      padding: "4%",
     };
 
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
     const [assignCardData, setAssignCardData] = useState();
 
+    useEffect(() => {
+      if (true) {
+        console.log([assignCardData]);
+        console.log("i updated ^");
+      }
+    }, [assignCardData]);
+
     const handleSubmit = () => {
         setAc([false, null, null, true, disabledStyle, "Assigned"]);
+        console.log([assignCardData]);
         axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
           params: {
             workerID: 'STE001',
@@ -46,7 +54,7 @@ const Assignments = (props) => {
 
     function handleClick() {
         if (ac[0]) {
-          setAc([false, null, null, false, notDisabledStyle, "Assign"]);
+          setAc([false, null, null, false, notDisabledStyle, "Assign Task"]);
         } else {
         setAc([
           true, 

@@ -16,7 +16,6 @@ h2 {
 
 .dashboard{
   min-height: 100vh;
-  background-image: url("assets/images/people.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -228,4 +227,23 @@ b {
 
 .premium-form {
   padding-top:1em
+}
+
+.t-valid {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.validate-cards {
+  background-color: "red";
+  padding: "4%";
+  margin: "2%";
+  border-radius: "5px";
+}
+
+.nav-md {
+  position: absolute;
+  top: 0;
+  width: 100%;
 }

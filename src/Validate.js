@@ -35,7 +35,7 @@ const Validate = (props) => {
   
   return (
     <div>
-      <h1>these are my timesheets!</h1>
+      <h4 className="t-valid">Timesheet Validation</h4>
       {timeSheets}
     </div>
   );

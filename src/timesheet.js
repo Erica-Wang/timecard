@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 const TimeSheetTask = (props) => {
+
   const [isValidated, validate] = useState(false);
   const [taskIsInvalid, invalidateTask] = useState(false);
   var premiums = [];
@@ -40,6 +41,19 @@ const TimeSheetTask = (props) => {
 
 const TimeSheet = (props) => {
 
+  const unvalidatedStyle = {
+    backgroundColor: "#ededed",
+    padding: "4%",
+    margin: "2%",
+    borderRadius: "5px",
+  };
+  const heavyEquip = {
+    backgroundColor: "yellow",
+    padding: "4%",
+    margin: "2%",
+    borderRadius: "5px",
+  }
+
   var validateTimesheet = ()=>{
     console.log("validating");
     axios.get('https://htc2020-timecard.herokuapp.com/validateTimecard', {
@@ -48,8 +62,8 @@ const TimeSheet = (props) => {
       }
     })
     .then(response => {
-      console.log('validaterd');
-      setButton(<button disabled>Validated</button>);
+      console.log('validated');
+      setButton(<Button disabled>Validated</Button>);
     })
   }
 
@@ -61,8 +75,8 @@ const TimeSheet = (props) => {
   const [userName, setUserName] = useState();
   const [button, setButton] = useState(
     <div>
-      <button onClick={validateTimesheet}>Validate</button>
-      <button onClick={contact}><a href="mailto:employee@example.com">Contact</a></button>
+      <Button onClick={validateTimesheet}>Validate</Button>
+      <a href="mailto:employee@example.com"><Button onClick={contact}>Contact</Button></a>
     </div>
   );
 
@@ -91,7 +105,7 @@ const TimeSheet = (props) => {
     console.log("getbutton");
     console.log(props.data.validated);
     if(props.data.validated=="True"){
-      setButton(<button disabled>Validated</button>);
+      setButton(<Button disabled>Validated</Button>);
     }
   }
 
@@ -103,7 +117,7 @@ const TimeSheet = (props) => {
     getButton();
   }, []);
   return (
-    <div>
+    <div style={unvalidatedStyle}>
       <h6>Name: {userName} <br />Flagged: {props.data.flagged} </h6>
       {taskList}
       {button}

@@ -8,7 +8,7 @@ const Timecard = (props) => {
 
   // clicked, <Premium />
   const [info, setInfo] = useState([false, null]);
-  const [equipmentNum, setEquipmentNum] = useState("");
+  const [equipment, setEquipment] = useState("");
   const [rate, setRate] = useState("");
   const [hour, setHour] = useState("");
   const [memo, setMemo] = useState("");
@@ -41,7 +41,7 @@ const Timecard = (props) => {
   useEffect(() => {
     var state = {
       info: info,
-      equipmentNum: equipmentNum,
+      equipment: equipment,
       rate: rate,
       hour: hour,
       memo: memo
@@ -51,13 +51,13 @@ const Timecard = (props) => {
       props.onChangeTC(state);
     }
   },
-  [info, equipmentNum, rate, hour, memo]
+  [info, equipment, rate, hour, memo]
   );
 
   return (
     <div className="timecard">
       <Form className="timecard-form">
-        <Form.Group onChange={(e) => setEquipmentNum(e.target.value)} controlId="equimentNumber">
+        <Form.Group onChange={(e) => setEquipment(e.target.value)} controlId="equimentNumber">
           <Form.Label>Equipment Used</Form.Label>
           <Form.Control type="" placeholder="e.g. 12-150" />
           <Form.Text className="text-muted"></Form.Text>
