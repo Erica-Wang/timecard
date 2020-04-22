@@ -11,7 +11,7 @@ class Assign extends Component{
   async componentWillMount(){
     await axios.get('https://htc2020-timecard.herokuapp.com/managergettasks/')
         .then(response => {
-          const managerDummy = "R JeeIllan"
+          const managerDummy = "Anne K"
           var tempList = []
           for (const assign of response.data){
             tempList.push(<Assignments id={assign._id} jobCode={assign.jobCode} activityCode={assign.activityCode} managerAssigned={managerDummy} />)
