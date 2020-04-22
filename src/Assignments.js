@@ -38,7 +38,8 @@ const Assignments = (props) => {
       if (posting){
         console.log("we made it!");
         console.log([assignCardData]);
-        axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
+        console.log(assignCardData.employees);
+        axios.get('https://htc2020-timecard.herokuapp.com/assignTaskAll/', {
             params: {
               employees: assignCardData.employees,
               managerID: props.userid,
