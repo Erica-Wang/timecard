@@ -102,7 +102,7 @@ const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
             lat: 44.3009,
             lng: -79.6115
           }}
-          defaultZoom={11}
+          defaultZoom={12}
         ></GoogleMapReact>
       </div>
     </div>
