@@ -231,13 +231,19 @@ b {
 
 .t-valid {
   text-align: center;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 3em;
+  padding-bottom: 0.5em;
+}
+
+.t-assign {
+  text-align: center;
+  padding-top: 3em;
+  padding-bottom: 0.5em;
 }
 
 .validate-cards {
   background-color: "red";
-  padding: "4%";
+  padding: "3%";
   margin: "2%";
   border-radius: "5px";
 }
