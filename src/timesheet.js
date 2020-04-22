@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {Button} from 'react-bootstrap';
+import {Button, Col, Container, Row} from 'react-bootstrap';
 import axios from 'axios';
+import { black } from 'material-ui/styles/colors';
 
 
 
@@ -19,14 +20,22 @@ const TimeSheetTask = (props) => {
   console.log(props)
   return (
     <div classname="timesheet-validate">
-      <p className="task-att">Job: {props.task.jobCode}</p>
-      <p className="task-att">Activity: {props.task.activityCode} </p>
-      <p className="task-att">Rate: {props.task.rate}</p>
-      <p className="task-att">Hours Worked: {props.task.hrs}</p>
-      <p className="task-att">Premiums: {premiums.length}</p>
-      <ul>
-        {prems}
-      </ul>
+      <Container>
+        <Row>
+          <Col sm>
+            <p className="task-att">Job: {props.task.jobCode}</p>
+            <p className="task-att">Activity: {props.task.activityCode} </p>
+            <p className="task-att">Rate: {props.task.rate}</p>
+            <p className="task-att">Hours Worked: {props.task.hrs}</p>
+          </Col>
+          <Col sm>
+            <p className="task-att">Premiums: {premiums.length}</p>
+            <ul>
+              {prems}
+            </ul>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
@@ -42,16 +51,18 @@ const TimeSheetTask = (props) => {
 const TimeSheet = (props) => {
 
   const unvalidatedStyle = {
-    backgroundColor: "#ededed",
+    backgroundColor: "#d9534f",
     padding: "4%",
     margin: "2%",
     borderRadius: "5px",
+    color: "black",
   };
-  const heavyEquip = {
-    backgroundColor: "yellow",
+  const validatedStyle = {
+    backgroundColor: "#5cb85c",
     padding: "4%",
     margin: "2%",
     borderRadius: "5px",
+    color: "black",
   }
 
   var validateTimesheet = ()=>{
@@ -63,7 +74,7 @@ const TimeSheet = (props) => {
     })
     .then(response => {
       console.log('validated');
-      setButton(<Button disabled>Validated</Button>);
+      setButton(<Button variant="secondary" className="btn" disabled>Validated</Button>);
     })
   }
 
@@ -73,12 +84,14 @@ const TimeSheet = (props) => {
 
   const [taskList, setTaskList] = useState();
   const [userName, setUserName] = useState();
+  const [currStyle, setCurrStyle] = useState(unvalidatedStyle);
   const [button, setButton] = useState(
     <div>
-      <Button onClick={validateTimesheet}>Validate</Button>
-      <a href="mailto:employee@example.com"><Button onClick={contact}>Contact</Button></a>
+      <Button variant="secondary" className="btn" onClick={validateTimesheet}>Validate</Button>
+      <a href="mailto:employee@example.com"><Button variant="secondary" className="btn" onClick={contact}>Contact</Button></a>
     </div>
   );
+  const [heavy, setHeavy] = useState();
 
   const getCompletedTasks = () => {
     var completedTasks = [];
@@ -105,22 +118,33 @@ const TimeSheet = (props) => {
     console.log("getbutton");
     console.log(props.data.validated);
     if(props.data.validated=="True"){
-      setButton(<Button disabled>Validated</Button>);
+      setButton(<Button variant="secondary" className="btn" disabled>Validated</Button>);
+      setCurrStyle(validatedStyle);
     }
   }
-
-
 
   useEffect(() => {
     getUserName();
     getCompletedTasks();
     getButton();
   }, []);
+
   return (
-    <div style={unvalidatedStyle}>
-      <h6>Name: {userName} <br />Flagged: {props.data.flagged} </h6>
+    <div style={currStyle}>
+      <h5>Name: {userName}</h5>
+      { (props.data.flagged == "True")? (
+        <p className="heavy-equip">*THIS EMPLOYEE USED HEAVY EQUIPMENT; MANUAL PAYCODE VALIDATION REQUIRED*</p>
+      ) : (
+        <div></div>
+      )}
       {taskList}
-      {button}
+      <Container>
+        <Row>
+          <Col className="text-center">
+            {button}
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
