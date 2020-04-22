@@ -261,3 +261,7 @@ b {
   border-radius: 2px;
   font-weight: bold;
 }
+
+.multi-select{
+  color: black !important;
+}
