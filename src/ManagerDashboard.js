@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
 
-function ManagerDashboard() {
+const ManagerDashboard = (props) => {
 
   function exportDatas() {
     axios.get('https://htc2020-timecard.herokuapp.com/getcsv').then(res => {
@@ -65,7 +65,7 @@ function ManagerDashboard() {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: PLACEHOLDER
+            Signed in as: {props.location.state.userid}
             <Link to='/'>
               <p style={{textAlign:"right", padding:"none"}}>Log Out</p>  
             </Link>  
