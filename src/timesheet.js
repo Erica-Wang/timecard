@@ -4,8 +4,6 @@ import {Button, Col, Container, Row} from 'react-bootstrap';
 import axios from 'axios';
 import { black } from 'material-ui/styles/colors';
 
-
-
 const TimeSheetTask = (props) => {
 
   const [isValidated, validate] = useState(false);
@@ -27,6 +25,7 @@ const TimeSheetTask = (props) => {
             <p className="task-att">Activity: {props.task.activityCode} </p>
             <p className="task-att">Rate: {props.task.rate}</p>
             <p className="task-att">Hours Worked: {props.task.hrs}</p>
+            <p className="task-att">Equipment: {props.task.equipment}</p>
           </Col>
           <Col sm>
             <p className="task-att">Premiums: {premiums.length}</p>
