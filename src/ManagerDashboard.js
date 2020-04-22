@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
 import './App.css';
-import {FaCloudDownloadAlt} from "react-icons/fa";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 
 const ManagerDashboard = (props) => {
 
@@ -88,41 +88,44 @@ const ManagerDashboard = (props) => {
         <Container>
           <Row>
             <Col className="btn-divide">
-              <Link className="btn-link" to={{
+              <Link to={{
                 pathname: "/manager-dashboard/assign-tasks",
                 state: {
                   userid: props.location.state.userid
                 }}}>
-                <Button className="gen-btn" variant="success" type="submit">
+                <Button className="gen-btn" type="submit">
                   Assign Tasks
                 </Button>
               </Link>
             </Col>
             <Col className="btn-divide">
-              <Link className="btn-link" to={{
+              <CsvDownloader
+                filename="Worker Timesheets"
+                separator=";"
+                columns={columns}
+                datas={csv}
+                text="Export as CSV">
+                <Button variant="secondary">
+                  <FaCloudDownloadAlt />
+              &nbsp;&nbsp;Export Timecards as CSV
+            </Button>
+              </CsvDownloader>
+            </Col>
+            <Col className="btn-divide">
+              <Link to={{
                 pathname: "/manager-dashboard/validate-timesheets",
                 state: {
                   userid: props.location.state.userid
                 }}}>
-                <Button className="gen-btn" variant="success" type="submit">
+                <Button className="gen-btn" type="submit">
                   Validate Timesheets
                 </Button>
               </Link>
             </Col>
           </Row>
         </Container>
-        <CsvDownloader
-          filename="Worker Timesheets"
-          separator=";"
-          columns={columns}
-          datas={csv}
-          text="Export as CSV">
-            <Button variant="secondary">
-              <FaCloudDownloadAlt />
-              &nbsp;&nbsp;Export Timecards as CSV
-            </Button>
-        </CsvDownloader>
-  
+
+
       </div>
     </div>
 

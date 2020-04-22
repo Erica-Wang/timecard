@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Form, Button} from 'react-bootstrap';
 import axios from 'axios';
-import Multiselect from "react-multi-select-component";
 import {FaPlus} from 'react-icons/fa';
 
 
@@ -11,17 +10,23 @@ import {FaPlus} from 'react-icons/fa';
 const Assigncard = (props) => {
 
   // clicked, <Premium />
+  const [info, setInfo] = useState("");
   const [employee, setEmployee] = useState("");
   const [notes, setNotes] = useState("");
   const [users, setUsers] = useState("");
 
+  const options = [
+    {label: "One", value: 1},
+    {label: "Two", value: 2},
+    {label: "Three", value: 3},
+  ];
 
   const getUsers = () => {
     const tempList = []
     axios.get('https://htc2020-timecard.herokuapp.com/getAllEmployees/')
     .then(response => {
       for (const user of response.data){
-        tempList.push({label: user.name, value : user.name});
+        tempList.push(<option >{user.name}</option>);
       }
       setUsers(tempList);
       return response.data
@@ -48,7 +53,7 @@ const Assigncard = (props) => {
       props.onChange(state);
     }
   },
-  [employee, notes, users]
+  [employee, notes]
   );
 
   return (
@@ -67,6 +72,12 @@ const Assigncard = (props) => {
           />
           
         </Form>
+        <Multiselect
+          options = {users}
+          value={employee}
+          onChange={setEmployee}
+          labelledBy={"Select"}
+        />
         
       </div>
   );

@@ -7,7 +7,6 @@ import TimeSheet from './timesheet'
 import axios from 'axios';
 
 
-const userid = '123';
 
 const Validate = (props) => {
   const [timeSheets, setTimeSheets] = useState();
