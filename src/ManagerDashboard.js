@@ -88,8 +88,12 @@ const ManagerDashboard = (props) => {
         <Container>
           <Row>
             <Col className="btn-divide">
-              <Link to="/manager-dashboard/assign-tasks">
-                <Button className="gen-btn" type="submit">
+              <Link className="btn-link" to={{
+                pathname: "/manager-dashboard/assign-tasks",
+                state: {
+                  userid: props.location.state.userid
+                }}}>
+                <Button className="gen-btn" variant="success" type="submit">
                   Assign Tasks
                 </Button>
               </Link>
