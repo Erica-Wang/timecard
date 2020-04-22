@@ -87,14 +87,22 @@ const ManagerDashboard = (props) => {
         <Container>
           <Row>
             <Col className="btn-divide">
-              <Link className="btn-link" to="/manager-dashboard/assign-tasks">
+              <Link className="btn-link" to={{
+                pathname: "/manager-dashboard/assign-tasks",
+                state: {
+                  userid: props.location.state.userid
+                }}}>
                 <Button className="gen-btn" variant="success" type="submit">
                   Assign Tasks
                 </Button>
               </Link>
             </Col>
             <Col className="btn-divide">
-              <Link className="btn-link" to="/manager-dashboard/validate-timesheets">
+              <Link className="btn-link" to={{
+                pathname: "/manager-dashboard/validate-timesheets",
+                state: {
+                  userid: props.location.state.userid
+                }}}>
                 <Button className="gen-btn" variant="success" type="submit">
                   Validate Timesheets
                 </Button>
