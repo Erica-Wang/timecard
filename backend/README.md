@@ -75,7 +75,7 @@ input:
 3. notes
 4. id (taskid)
 
-### get /assignTask (there can only be one manager oop)
+### get /assignTaskAll (there can only be one manager oop)
 
 input:
 
