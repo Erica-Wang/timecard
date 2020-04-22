@@ -24,6 +24,8 @@ const Assignments = (props) => {
 
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
     const [assignCardData, setAssignCardData] = useState();
+    const [posting, startPosting] = useState(false);
+
 
     useEffect(() => {
       if (true) {
@@ -32,17 +34,25 @@ const Assignments = (props) => {
       }
     }, [assignCardData]);
 
-    const handleSubmit = () => {
-        setAc([false, null, null, true, disabledStyle, "Assigned"]);
+    useEffect(() => {
+      if (posting){
+        console.log("we made it!");
         console.log([assignCardData]);
         axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
-          params: {
-            workerID: 'STE001',
-            managerID: 'STE001',
-            notes: 'Hi Hello Bye',
-            id: props.id
-          }
-        })
+            params: {
+              employees: assignCardData.employees,
+              managerID: props.userid,
+              notes: assignCardData.notes,
+              id: props.id
+            }
+          })
+      }
+      
+    }, [posting]);
+
+    const handleSubmit = () => {
+        startPosting(true);
+        setAc([false, null, null, true, disabledStyle, "Assigned"]);
         console.log('Posted!');
     }
 
