@@ -247,3 +247,17 @@ b {
   top: 0;
   width: 100%;
 }
+
+.btn {
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.heavy-equip {
+  background-color: gold;
+  text-align: center;
+  padding: 0.2em;
+  border-radius: 2px;
+  font-weight: bold;
+}
