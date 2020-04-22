@@ -11,7 +11,7 @@
 8. "2"
 9. "MEAL ALLOWANCE"
 
-### post /workerRegister
+### get /workerRegister
 
 input:
 
@@ -23,7 +23,7 @@ input:
 6. workUnit
 7. department
 
-### post /managerRegister
+### get /managerRegister
 
 input:
 
@@ -66,14 +66,23 @@ output:
 
 1. {_id, jobCode, activityCode, managerAssigned, workerAssigned, notes}
 
-### post /assignTask (there can only be one manager oop)
+### get /assignTask (there can only be one manager oop)
 
 input:
 
 1. workerID
 2. managerID
 3. notes
-4. id
+4. id (taskid)
+
+### get /assignTask (there can only be one manager oop)
+
+input:
+
+1. employees (list of objects{value=workerid})
+2. managerID
+3. notes
+4. id (taskid)
 
 ### get /employeeGetTasks
 
@@ -95,7 +104,7 @@ output:
 
 1. [{see json file}]
 
-### post /completeTask
+### get /completeTask
 
 input:
 
@@ -108,7 +117,7 @@ input:
 7. memo
 8. equipment
 
-### post /validateTimecard
+### get /validateTimecard
 
 input:
 
@@ -139,3 +148,5 @@ output:
 
 output:
 1. [{employee object see mongo}]
+
+
