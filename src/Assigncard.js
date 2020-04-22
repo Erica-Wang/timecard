@@ -39,8 +39,8 @@ const Assigncard = (props) => {
       users: users
     };
 
-    if (props.onChangeTC) {
-      props.onChangeTC(state);
+    if (props.onChange) {
+      props.onChange(state);
     }
   },
   [employee, notes]

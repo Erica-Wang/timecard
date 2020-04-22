@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Assigncard from './Assigncard';
@@ -25,8 +25,16 @@ const Assignments = (props) => {
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
     const [assignCardData, setAssignCardData] = useState();
 
+    useEffect(() => {
+      if (true) {
+        console.log([assignCardData]);
+        console.log("i updated ^");
+      }
+    }, [assignCardData]);
+
     const handleSubmit = () => {
         setAc([false, null, null, true, disabledStyle, "Assigned"]);
+        console.log([assignCardData]);
         axios.get('https://htc2020-timecard.herokuapp.com/assignTask/', {
           params: {
             workerID: 'STE001',
