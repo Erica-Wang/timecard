@@ -54,7 +54,7 @@ const Assignments = (props) => {
 
     function handleClick() {
         if (ac[0]) {
-          setAc([false, null, null, false, notDisabledStyle, "Assign"]);
+          setAc([false, null, null, false, notDisabledStyle, "Assign Task"]);
         } else {
         setAc([
           true, 
