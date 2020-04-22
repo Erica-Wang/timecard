@@ -108,9 +108,6 @@ const ManagerDashboard = (props) => {
           columns={columns}
           datas={csv}
           text="Export as CSV" />
-        <Button className="gen-btn" variant="success" type="submit" >
-          Export Datas
-                </Button>
       </div>
     </div>
 

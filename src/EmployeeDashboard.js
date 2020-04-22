@@ -66,7 +66,7 @@ const EmployeeDashboard = (props) => {
     getUserInfo();
   }, []);
 
-  
+
   return (
     <div>
       <Navbar bg="light">
