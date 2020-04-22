@@ -73,7 +73,7 @@ const TimeSheet = (props) => {
     })
     .then(response => {
       console.log('validated');
-      setButton(<Button variant="secondary" className="btn" disabled>Validated</Button>);
+      setButton(<Button variant="secondary" className="mybtn" disabled>Validated</Button>);
     })
   }
 
@@ -86,8 +86,8 @@ const TimeSheet = (props) => {
   const [currStyle, setCurrStyle] = useState(unvalidatedStyle);
   const [button, setButton] = useState(
     <div>
-      <Button variant="secondary" className="btn" onClick={validateTimesheet}>Validate</Button>
-      <a href="mailto:employee@example.com"><Button variant="secondary" className="btn" onClick={contact}>Contact</Button></a>
+      <Button variant="secondary" className="mybtn" onClick={validateTimesheet}>Validate</Button>
+      <a href="mailto:employee@example.com"><Button variant="secondary" className="mybtn" onClick={contact}>Contact</Button></a>
     </div>
   );
   const [heavy, setHeavy] = useState();
@@ -117,7 +117,7 @@ const TimeSheet = (props) => {
     console.log("getbutton");
     console.log(props.data.validated);
     if(props.data.validated=="True"){
-      setButton(<Button variant="secondary" className="btn" disabled>Validated</Button>);
+      setButton(<Button variant="secondary" className="mybtn" disabled>Validated</Button>);
       setCurrStyle(validatedStyle);
     }
   }
