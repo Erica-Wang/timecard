@@ -81,7 +81,6 @@ const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
           </Col>
         </Row>
       </Container>
-      <h1>IM THE MAP IM THE MAP IM THE MAP MAP MAP</h1>
       {/* <div style={{height: '100vh', width: '500px'}}>
           <GoogleMapReact 
             bootstrapURLKeys={{key: 'AIzaSyCb29b7bfQhT1MTAwDgH54Xj51u7pzFP50'}}
@@ -100,8 +99,8 @@ const apiKey = {key: 'AIzaSyC-G9USLZl-X5PNWN6wkD3scL92ryQi9h4'}
         <GoogleMapReact
           bootstrapURLKeys={apiKey}
           defaultCenter={{
-            lat: 59.95,
-            lng: 30.33
+            lat: 44.3009,
+            lng: -79.6115
           }}
           defaultZoom={11}
         ></GoogleMapReact>
