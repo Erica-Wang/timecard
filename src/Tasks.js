@@ -18,6 +18,7 @@ export const Tasks = (props) => {
     color: "grey",
     borderRadius: "5px",
     marginBottom: "2%",
+    padding: "4%",
   };
 
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Link, Route } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
+import logo from './logo.svg'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
@@ -58,6 +59,19 @@ function ManagerDashboard() {
 
   return (
     <div class="dashboard">
+       <Navbar bg="light">
+        <Navbar.Brand>
+          <img className="nav-logo" src={logo} alt="logo" />
+        </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in as: PLACEHOLDER
+            <Link to='/'>
+              <p style={{textAlign:"right", padding:"none"}}>Log Out</p>  
+            </Link>  
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Navbar>
       <h1>Manager Dashboard</h1>
       <hr></hr>
       <h4>Manager Options</h4>
