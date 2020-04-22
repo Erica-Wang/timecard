@@ -15,11 +15,6 @@ const Assigncard = (props) => {
   const [notes, setNotes] = useState("");
   const [users, setUsers] = useState("");
 
-  const options = [
-    {label: "One", value: 1},
-    {label: "Two", value: 2},
-    {label: "Three", value: 3},
-  ];
 
   const getUsers = () => {
     const tempList = []
@@ -49,6 +44,7 @@ const Assigncard = (props) => {
     };
 
     if (props.onChange) {
+      console.log(state);
       props.onChange(state);
     }
   },
@@ -63,13 +59,14 @@ const Assigncard = (props) => {
             <Form.Control type="" placeholder="Job Details" />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
+          <Multiselect className = "multi-select"
+            options = {users}
+            value={employee}
+            onChange={setEmployee}
+            labelledBy={"Select"}
+          />
+          
         </Form>
-        <Multiselect
-          options = {users}
-          value={employee}
-          onChange={setEmployee}
-          labelledBy={"Select"}
-        />
         
       </div>
   );
