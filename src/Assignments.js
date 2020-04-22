@@ -8,18 +8,18 @@ import axios from 'axios';
 
 const Assignments = (props) => {
     const notDisabledStyle = {
-        backgroundColor: "#ededed",
-        borderRadius: "1em",
-        color: "black",
-        margin: "2%",
-        padding: "2%",
+      backgroundColor: "#ededed",
+      borderRadius: "5px",
+      color: "black",
+      marginBottom: "2%",
+      padding: "4%",
     };
     const disabledStyle = {
-       backgroundColor: "#ededed",
-       color: "grey",
-       borderRadius: "1em",
-       margin: "2%",
-       padding: "2%",
+      backgroundColor: "#ededed",
+      color: "grey",
+      borderRadius: "5px",
+      marginBottom: "2%",
+      padding: "4%",
     };
 
     const [ac, setAc] = useState([false, null, null, false, notDisabledStyle, "Assign Task"]);
