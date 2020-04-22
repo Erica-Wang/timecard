@@ -21,7 +21,8 @@ export const Tasks = (props) => {
     padding: "4%",
   };
 
-
+  console.log("aaa");
+  console.log(props);
   // toggle click, Timecard, Button, disabled, currStyle, btnWriting
   const [tc, setTc] = useState([false, null, null, false, notDisabledStyle, "Task Complete"]);
   const [timeCardData, setTimeCardData] = useState('hello world 2');
@@ -73,15 +74,6 @@ export const Tasks = (props) => {
     console.log(timeCardData);
     console.log(premiumData);
     if (posting) {
-      console.log(props.id);
-      console.log(props.jobCode);
-      console.log(props.activityCode);
-      console.log(timeCardData.rate);
-      console.log(timeCardData.hour);
-      console.log(timeCardData.memo);
-      console.log(timeCardData.equipment);
-      console.log("I made this juan");
-      console.log(convertPremiumToJson(premiumData)); 
       
       axios.get('https://htc2020-timecard.herokuapp.com/completeTask', {
         params: {
@@ -130,6 +122,7 @@ export const Tasks = (props) => {
           <Col md>
             <p className="task-att"><b>Job:</b> {props.jobCode}</p>
             <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
+            <p className="task-att">Job/Activity Description: {props.description} </p>
             <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
             <p className="task-att">Notes: {props.notes}</p>
             <Button className="task-btn" onClick={handleClick} disabled={tc[3]}>{tc[5]}</Button>

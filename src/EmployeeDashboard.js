@@ -34,7 +34,8 @@ const EmployeeDashboard = (props) => {
           activityCode={task.activityCode} 
           notes={task.notes} 
           managerAssigned={task.managerAssigned}
-          id={userid} />);
+          id={userid}
+          description={task.description} />);
       }
       if (response.data.length === 0) { // if the employee has no tasks, render a component saying so
         console.log("oof");

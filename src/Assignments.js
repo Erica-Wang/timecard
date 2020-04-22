@@ -30,13 +30,6 @@ const Assignments = (props) => {
 
 
     useEffect(() => {
-      if (true) {
-        console.log([assignCardData]);
-        console.log("i updated ^");
-      }
-    }, [assignCardData]);
-
-    useEffect(() => {
       if (posting){
         console.log("we made it!");
         console.log([assignCardData]);
@@ -82,6 +75,7 @@ const Assignments = (props) => {
     <div className="task" style={ac[4]}>
       <p className="task-att"><b>Job:</b> {props.jobCode}</p>
       <p className="task-att"><b>Activity:</b> {props.activityCode} </p>
+      <p className="task-att">Job/Activity Description: {props.description} </p>
       <p className="task-att">Assigning Manager: {props.managerAssigned}</p>
       <Button className="task-btn" onClick={handleClick} disabled={ac[3]}>{ac[5]}</Button>
       {ac[1]}
