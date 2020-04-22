@@ -263,5 +263,5 @@ b {
 }
 
 .multi-select{
-  color: black;
+  color: black !important;
 }

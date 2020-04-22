@@ -3,7 +3,7 @@ import './App.css';
 import {Form, Button} from 'react-bootstrap';
 import axios from 'axios';
 import {FaPlus} from 'react-icons/fa';
-
+import Multiselect from "react-multi-select-component";
 
 
 
@@ -26,7 +26,7 @@ const Assigncard = (props) => {
     axios.get('https://htc2020-timecard.herokuapp.com/getAllEmployees/')
     .then(response => {
       for (const user of response.data){
-        tempList.push(<option >{user.name}</option>);
+        tempList.push({label: user.name, value : user.name});
       }
       setUsers(tempList);
       return response.data
@@ -68,17 +68,10 @@ const Assigncard = (props) => {
             options = {users}
             value={employee}
             onChange={setEmployee}
-            labelledBy={"Select"}
+            labelledBy={"Select Employees"}
           />
           
-        </Form>
-        <Multiselect
-          options = {users}
-          value={employee}
-          onChange={setEmployee}
-          labelledBy={"Select"}
-        />
-        
+        </Form>    
       </div>
   );
 }
