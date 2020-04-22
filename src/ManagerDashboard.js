@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import CsvDownloader from 'react-csv-downloader';
 
 function ManagerDashboard() {
+  const [csv, setCSV] = useState();
 
+  useEffect(() => {
+    setCSV(exportDatas());
+  }, []);
+  
   function exportDatas() {
     axios.get('https://htc2020-timecard.herokuapp.com/getcsv').then(res => {
       const datas = [];
       var i = 0;
-      for (i = 0; i < res.data.length; i++){
+      for (i = 0; i < res.data.length; i++) {
         const row = {
           EmployeeName: res.data[i].EmployeeName,
           EmployeeID: res.data[i].EmployeeID,
@@ -26,6 +31,7 @@ function ManagerDashboard() {
         datas.push(row);
       }
       console.log(datas);
+      console.log(datas2);
       return datas;
     });
   }
@@ -56,6 +62,26 @@ function ManagerDashboard() {
     displayName: 'Timecode'
   }];
 
+  const datas2= [{
+    EmployeeName: 'Rahma',
+    EmployeeID: 'loves',
+    EmployeeType: 'smoking',
+    Date: 'crack',
+    JobCode: 'and',
+    ActivityCode: 'doing',
+    Hours: 4,
+    TimeCode: 'weed'
+  }, {
+    EmployeeName: 'Rahma',
+    EmployeeID: 'loves',
+    EmployeeType: 'smoking',
+    Date: 'crack',
+    JobCode: 'and',
+    ActivityCode: 'doing',
+    Hours: 4,
+    TimeCode: 'weed'
+  }];
+
   return (
     <div class="dashboard">
       <h1>Manager Dashboard</h1>
@@ -83,13 +109,13 @@ function ManagerDashboard() {
         filename="Worker Timesheets"
         separator=";"
         columns={columns}
-        datas={() => exportDatas()}
+        datas={csv}
         text="Export as CSV" />
-                      <Button className="gen-btn" variant="success" type="submit" onClick={console.log(exportDatas())}>
-                Export Datas
+      <Button className="gen-btn" type="submit" onClick={() => exportDatas()}>
+        Export Datas
               </Button>
     </div>
-    
+
   );
 }
 
